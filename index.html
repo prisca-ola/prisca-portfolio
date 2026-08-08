@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prisca Olatunji</title>
+  <meta name="description" content="Prisca Olatunji, portfolio. Selected works, about, and contact." />
+
+  <!-- Satoshi font (Fontshare) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== Top bar ===== -->
+  <header class="topbar">
+    <a class="brand" href="#home" data-target="home">Prisca Olatunji</a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#works" data-target="works">Works</a>
+      <a href="#about" data-target="about">About</a>
+      <a href="#contact" data-target="contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" />
+      </svg>
+      <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- ===== Side rail: section dots + scroll progress ===== -->
+  <aside class="rail" aria-hidden="true">
+    <div class="rail-dots">
+      <button class="dot" data-target="home"><span>Home</span></button>
+      <button class="dot" data-target="works"><span>Works</span></button>
+      <button class="dot" data-target="about"><span>About</span></button>
+      <button class="dot" data-target="contact"><span>Contact</span></button>
+    </div>
+    <div class="rail-progress">
+      <span class="pct" id="pct">0%</span>
+    </div>
+  </aside>
+
+  <!-- ===== Sections ===== -->
+  <main class="scroller" id="scroller">
+
+    <!-- Home / hero -->
+    <section class="panel panel-home" id="home">
+      <div class="stack-stage">
+        <div class="stack" id="stack"><!-- cards injected by JS --></div>
+      </div>
+
+      <div class="hero-controls" role="group" aria-label="Browse works">
+        <span class="hc-thumb" id="hcThumb"></span>
+        <span class="hc-label" id="hcLabel">WORK</span>
+        <div class="hc-arrows">
+          <button class="hc-btn" id="hcPrev" type="button" aria-label="Previous work">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <button class="hc-btn" id="hcNext" type="button" aria-label="Next work">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="panel panel-works" id="works">
+      <div class="panel-inner">
+        <div class="sec-head reveal">
+          <span class="sec-index">01</span>
+          <h2 class="sec-title">Selected Works</h2>
+        </div>
+        <ul class="works-list">
+          <li class="work reveal">
+            <span class="work-no">/01</span>
+            <span class="work-name">Project One</span>
+            <span class="work-cat">Brand Identity</span>
+            <span class="work-year">2025</span>
+          </li>
+          <li class="work reveal">
+            <span class="work-no">/02</span>
+            <span class="work-name">Project Two</span>
+            <span class="work-cat">Web Design</span>
+            <span class="work-year">2025</span>
+          </li>
+          <li class="work reveal">
+            <span class="work-no">/03</span>
+            <span class="work-name">Project Three</span>
+            <span class="work-cat">Art Direction</span>
+            <span class="work-year">2024</span>
+          </li>
+          <li class="work reveal">
+            <span class="work-no">/04</span>
+            <span class="work-name">Project Four</span>
+            <span class="work-cat">Product Design</span>
+            <span class="work-year">2024</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="panel panel-about" id="about">
+      <div class="panel-inner">
+        <div class="sec-head reveal">
+          <span class="sec-index">02</span>
+          <h2 class="sec-title">About</h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-lead reveal">
+            I am a designer with a love for clean layouts, warm typography, and
+            interfaces that feel effortless. I help brands and teams turn ideas
+            into work that is clear, considered, and memorable.
+          </p>
+          <div class="about-meta reveal">
+            <div class="meta-block">
+              <h3>Services</h3>
+              <ul>
+                <li>Brand Identity</li>
+                <li>Web &amp; Product Design</li>
+                <li>Art Direction</li>
+              </ul>
+            </div>
+            <div class="meta-block">
+              <h3>Tools</h3>
+              <ul>
+                <li>Figma</li>
+                <li>Adobe Suite</li>
+                <li>Webflow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="panel panel-contact" id="contact">
+      <div class="panel-inner">
+        <div class="sec-head reveal">
+          <span class="sec-index">03</span>
+          <h2 class="sec-title">Contact</h2>
+        </div>
+        <p class="contact-lead reveal">Have a project in mind? Let us make something good.</p>
+        <a class="contact-mail reveal" href="mailto:hello@priscaolatunji.com">hello@priscaolatunji.com</a>
+        <ul class="contact-socials reveal">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
+        </ul>
+        <p class="contact-foot reveal">&copy; <span id="year"></span> Prisca Olatunji. All rights reserved.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

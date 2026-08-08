@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajó Mobile App — Case Study · Prisca Olatunji</title>
+  <meta name="description" content="Ajó Mobile App — a savings app case study by Prisca Olatunji. Visual design, UX design, prototyping." />
+
+  <!-- Satoshi font (Fontshare) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Case study page — dark to match the design export (#1a1a1a) */
+    /* The shared stylesheet locks body scroll for the single-page site; re-enable normal page scroll here. */
+    html { height: auto; overflow: visible; }
+    .cs-body {
+      background: #1a1a1a;
+      color: #f0e7db;
+      min-height: 100vh;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+
+    .cs-topbar {
+      background: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .cs-topbar .brand { color: #f4ede3; }
+    .cs-topbar .nav a { color: #b6a491; }
+    .cs-topbar .nav a:hover { color: #f4ede3; }
+    .cs-topbar .theme-toggle { border-color: rgba(255, 255, 255, 0.16); color: #f4ede3; }
+
+    .cs-main { padding-top: var(--topbar-h); }
+
+    /* The design, stacked seamlessly. Capped at native width so it never upscales. */
+    .cs-strip {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: block;
+      font-size: 0;           /* kill any inline-image gaps */
+      background: #1a1a1a;
+    }
+    .cs-strip img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .cs-cta {
+      display: flex;
+      justify-content: center;
+      padding: 48px 24px 88px;
+      background: #1a1a1a;
+    }
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #f4ede3;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+    }
+    .cs-back:hover { background: var(--primary); border-color: var(--primary); color: #1a1a1a; }
+  </style>
+</head>
+<body class="cs-body">
+  <!-- ===== Top bar ===== -->
+  <header class="topbar cs-topbar">
+    <a class="brand" href="index.html">&larr; Prisca Olatunji</a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#works">All work</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" />
+      </svg>
+      <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- ===== Case study (the design, section by section) ===== -->
+  <main class="cs-main">
+    <div class="cs-strip">
+      <img src="works/ajo/part-00.webp" width="1440" height="1895" alt="Ajó Mobile App — overview and onboarding" />
+      <img src="works/ajo/part-01.webp" width="1440" height="1895" alt="Ajó — onboarding and account creation" loading="lazy" />
+      <img src="works/ajo/part-02.webp" width="1440" height="1895" alt="Ajó — verification and help" loading="lazy" />
+      <img src="works/ajo/part-03.webp" width="1440" height="1895" alt="Ajó — personal vs joint accounts" loading="lazy" />
+      <img src="works/ajo/part-04.webp" width="1440" height="1895" alt="Ajó — challenges and research" loading="lazy" />
+      <img src="works/ajo/part-05.webp" width="1440" height="1895" alt="Ajó — persona and solutions" loading="lazy" />
+      <img src="works/ajo/part-06.webp" width="1440" height="1895" alt="Ajó — solutions and security" loading="lazy" />
+      <img src="works/ajo/part-07.webp" width="1440" height="1895" alt="Ajó — userflow and colour" loading="lazy" />
+      <img src="works/ajo/part-08.webp" width="1440" height="1895" alt="Ajó — fonts and navigation features" loading="lazy" />
+      <img src="works/ajo/part-09.webp" width="1440" height="1895" alt="Ajó — final app screens" loading="lazy" />
+      <img src="works/ajo/part-10.webp" width="1440" height="1895" alt="Ajó — final app screens" loading="lazy" />
+      <img src="works/ajo/part-11.webp" width="1440" height="1885" alt="Ajó — final screens and takeaways" loading="lazy" />
+    </div>
+
+    <div class="cs-cta">
+      <a class="cs-back" href="index.html#works">&larr; Back to all work</a>
+    </div>
+  </main>
+
+  <script>
+    /* Theme (shares the portfolio's stored preference) */
+    (function () {
+      var html = document.documentElement, KEY = "prisca.theme";
+      function apply(t) { html.setAttribute("data-theme", t); try { localStorage.setItem(KEY, t); } catch (e) {} }
+      var saved; try { saved = localStorage.getItem(KEY); } catch (e) {}
+      if (saved === "light" || saved === "dark") apply(saved);
+      else apply(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var t = document.getElementById("themeToggle");
+      if (t) t.addEventListener("click", function () {
+        apply(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+    })();
+
+    /* Custom trailing cursor (mouse only), same as the main site */
+    (function () {
+      var dot = document.createElement("div");
+      dot.className = "cursor-dot";
+      document.body.appendChild(dot);
+      var x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, shown = false, rafId = null;
+      function show() { if (!shown) { shown = true; dot.classList.add("show"); } if (rafId === null) rafId = requestAnimationFrame(raf); }
+      function onMove(cx, cy) { tx = cx; ty = cy; show(); }
+      if ("PointerEvent" in window) {
+        addEventListener("pointermove", function (e) { if (e.pointerType && e.pointerType !== "mouse") return; onMove(e.clientX, e.clientY); }, { passive: true });
+      } else {
+        addEventListener("mousemove", function (e) { onMove(e.clientX, e.clientY); }, { passive: true });
+      }
+      document.addEventListener("mouseleave", function () { shown = false; dot.classList.remove("show"); });
+      document.addEventListener("mouseenter", function () { if (shown) dot.classList.add("show"); });
+      var HOT = "a, button, .theme-toggle";
+      document.addEventListener("mouseover", function (e) { if (e.target.closest && e.target.closest(HOT)) dot.classList.add("hot"); });
+      document.addEventListener("mouseout", function (e) { if (e.target.closest && e.target.closest(HOT)) dot.classList.remove("hot"); });
+      function raf() { x += (tx - x) * 0.18; y += (ty - y) * 0.18; dot.style.transform = "translate(" + x + "px," + y + "px) translate(-50%, -50%)"; rafId = requestAnimationFrame(raf); }
+    })();
+  </script>
+</body>
+</html>
