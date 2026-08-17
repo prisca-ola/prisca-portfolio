@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinetyq Case Study · Prisca Olatunji</title>
-  <meta name="description" content="Kinetyq, an AI-powered fleet intelligence platform. A product design case study by Prisca Olatunji." />
+  <title>Legalpedia Case Study &middot; Prisca Olatunji</title>
+  <meta name="description" content="Legalpedia, a legal intelligence platform. A product design case study by Prisca Olatunji." />
 
   <!-- Satoshi font (Fontshare) -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    /* ---- Kinetyq case study : navy frame, gold accent, Satoshi ---- */
+    /* ---- Legalpedia case study : navy frame, gold accent, Satoshi ---- */
     :root {
       --nv: #010D16;
       --ink: #eef4f9;
@@ -33,7 +33,7 @@
       overflow-x: hidden;
       overflow-y: visible;
     }
-    /* Subtle film grain over the dark canvas (same as the Edibles case study) */
+    /* Subtle film grain over the dark canvas (same as the other case studies) */
     .cs-body::before {
       content: "";
       position: fixed;
@@ -66,53 +66,6 @@
     .cs-herofull { width: 100%; display: block; }
     .cs-herofull img { display: block; width: 100%; height: auto; }
 
-    /* Shared centred column */
-    .cs-col { max-width: 1240px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 72px); }
-
-    /* ---- Intro : Description (left) + fields grid (right) ---- */
-    .cs-intro {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 96px);
-      align-items: start;
-      padding: clamp(48px, 7vw, 92px) 0 clamp(48px, 7vw, 88px);
-      border-bottom: 1px solid var(--cs-line);
-    }
-    .cs-desc h2 { margin: 0 0 20px; font-size: clamp(24px, 2.8vw, 32px); font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
-    .cs-desc p { margin: 0; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 46ch; }
-    .cs-desc p + p { margin-top: 16px; }
-
-    .cs-facts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 44px) clamp(28px, 4vw, 60px); }
-    .cs-facts .f { display: flex; flex-direction: column; gap: 8px; }
-    .cs-facts .k { font-size: 14px; color: var(--ink-2); }
-    .cs-facts .v { font-size: clamp(17px, 1.7vw, 21px); font-weight: 700; color: var(--ink); line-height: 1.35; }
-
-    /* ---- Dashed-stroke live-site button ---- */
-    .cs-livecta { display: flex; justify-content: center; padding: clamp(16px, 3vw, 32px) 0 clamp(56px, 8vw, 96px); }
-    .cs-live {
-      display: inline-flex; align-items: center; gap: 12px;
-      height: 56px; padding: 0 32px; border-radius: 999px;
-      border: 1.5px dashed var(--gold); background: transparent; color: var(--gold);
-      font-size: 16px; font-weight: 600;
-      transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
-    }
-    .cs-live:hover { background: var(--gold); color: var(--nv); border-style: solid; }
-    .cs-live svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-    /* Designs section heading */
-    .cs-designs-head {
-      text-align: center; margin: 0; padding: 0 0 clamp(28px, 4vw, 44px);
-      font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
-    }
-
-    /* ---- The designs : elevated screens floating on the navy frame ---- */
-    .cs-designs { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px); }
-    .cs-screen {
-      display: block; width: 100%; height: auto;
-      border-radius: 14px;
-      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.5);
-      margin-bottom: clamp(36px, 5vw, 72px);
-    }
-    .cs-screen:last-child { margin-bottom: 0; }
-
     /* Back button */
     .cs-cta { display: flex; justify-content: center; padding: clamp(56px, 8vw, 104px) 24px; }
     .cs-back {
@@ -121,11 +74,6 @@
       transition: background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
     }
     .cs-back:hover { background: var(--gold); border-color: var(--gold); color: var(--nv); }
-
-    @media (max-width: 820px) {
-      .cs-intro { grid-template-columns: 1fr; gap: 40px; }
-      .cs-facts { gap: 28px 40px; }
-    }
   </style>
 </head>
 <body class="cs-body">
@@ -147,53 +95,17 @@
   </header>
 
   <main class="cs-main">
-    <h1 class="sr-only">Kinetyq, fleet intelligence platform. Case study.</h1>
+    <h1 class="sr-only">Legalpedia, legal intelligence platform. Case study.</h1>
 
     <!-- ===== Full-bleed mockup hero ===== -->
     <section class="cs-herofull">
-      <img src="works/kinetyq/hero.webp" width="2076" height="1300" alt="Kinetyq case study cover, Know Where Every Vehicle Is landing page in a browser" />
+      <img src="works/legalpedia/hero.webp" width="2400" height="1610" alt="Legalpedia case study cover mockup" />
     </section>
 
-    <!-- ===== Horizontal intro : meta + columns ===== -->
-    <section class="cs-col">
-      <div class="cs-intro">
-        <div class="cs-desc">
-          <h2>Description</h2>
-          <p>
-            Kinetyq is an AI-powered platform that delivers intelligent, real-time vehicle insights
-            that empower drivers, technicians and fleet managers. By connecting vehicles, people and
-            workflows into one platform, Kinetyq helps fleets operate with fewer breakdowns, lower
-            costs and greater confidence on the road.
-          </p>
-        </div>
-
-        <div class="cs-facts">
-          <div class="f"><span class="k">Category</span><span class="v">Visual Design</span></div>
-          <div class="f"><span class="k">Duration</span><span class="v">2025 - 2026</span></div>
-          <div class="f"><span class="k">Designer</span><span class="v">Prisca Olatunji</span></div>
-          <div class="f"><span class="k">Services</span><span class="v">UI Design, Claude-Code</span></div>
-        </div>
-      </div>
-
-      <!-- Dashed-stroke live-site button, before the designs -->
-      <div class="cs-livecta">
-        <a class="cs-live" href="#" target="_blank" rel="noopener">
-          View the live site
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
-        </a>
-      </div>
-    </section>
-
-    <!-- ===== The designs : elevated screens on the navy frame ===== -->
-    <h2 class="cs-designs-head">The designs</h2>
-    <div class="cs-designs">
-      <img class="cs-screen" src="works/kinetyq/part-00.webp" width="2160" height="13049" alt="Kinetyq home page" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-01.webp" width="2160" height="7403" alt="Kinetyq features" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-02.webp" width="2160" height="7164" alt="Kinetyq pricing" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-03.webp" width="2160" height="5370" alt="Kinetyq tracking" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-04.webp" width="2160" height="8100" alt="Kinetyq about us" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-05.webp" width="2160" height="2960" alt="Kinetyq contact us" loading="lazy" />
-    </div>
+    <!-- ===== Case study content to come =====
+         Follow the same structure as kinetyq.html / ajo.html / edibles.html:
+         .cs-col > .cs-intro (Description + facts), .cs-livecta, .cs-designs-head,
+         .cs-designs (the screens). Left intentionally unbuilt for now. -->
 
     <div class="cs-cta">
       <a class="cs-back" href="index.html#works">&larr; Back to all work</a>

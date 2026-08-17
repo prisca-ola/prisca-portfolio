@@ -16,3 +16,9 @@ dev-server.cjs
 # Heavy case-study source exports (optimised WebPs under works/ are what ship)
 ajo casestudy/
 kinetyq-casestudy/
+/Design gallery/
+/Legalpedia/
+/Edibles/
+/assets/*.JPG
+/assets/*.jpg
+/assets/*.png

@@ -45,30 +45,36 @@
     if (target) target.scrollIntoView({ behavior: "smooth" });
   }
 
-  document.addEventListener("click", function (e) {
-    var trigger = e.target.closest("[data-target]");
-    if (!trigger) return;
-    e.preventDefault();
-    goTo(trigger.getAttribute("data-target"));
-  });
-
-  /* ---------- Active section tracking + reveal ---------- */
-  function setActive(id) {
+  /* Rail dots track scroll position; nav links do NOT (each nav item is its own
+     page, so the active nav only changes when the user clicks it, never on scroll). */
+  function setActiveDot(id) {
     dots.forEach(function (d) {
       d.classList.toggle("active", d.getAttribute("data-target") === id);
     });
+  }
+  function setActiveNav(id) {
     navLinks.forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("data-target") === id);
     });
   }
 
+  document.addEventListener("click", function (e) {
+    var trigger = e.target.closest("[data-target]");
+    if (!trigger) return;
+    e.preventDefault();
+    var id = trigger.getAttribute("data-target");
+    goTo(id);
+    setActiveNav(id);   // nav highlight changes only on an explicit click
+  });
+
+  /* ---------- Reveal on view + rail-dot tracking ---------- */
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add("in-view");
-            if (entry.intersectionRatio >= 0.5) setActive(entry.target.id);
+            if (entry.intersectionRatio >= 0.5) setActiveDot(entry.target.id);
           }
         });
       },
@@ -77,8 +83,10 @@
     panels.forEach(function (p) { io.observe(p); });
   } else {
     panels.forEach(function (p) { p.classList.add("in-view"); });
-    setActive("home");
+    setActiveDot("home");
   }
+
+  setActiveNav("home");   // HOME is the active nav link on load
 
   /* ---------- Scroll progress percentage ---------- */
   function updateProgress() {
@@ -117,8 +125,10 @@
 
   // Add more projects by appending { title, img } entries here.
   var WORKS = [
+    { title: "Legalpedia", img: "works/legalpedia.webp", link: "legalpedia.html" },
     { title: "Ajo", img: "works/ajo.png", link: "ajo.html" },
     { title: "Kinetyq", img: "works/kinetyq.webp", link: "kinetyq.html" },
+    { title: "Edibles", img: "works/edibles.webp", link: "edibles.html" },
   ];
 
   var N = WORKS.length;
@@ -249,6 +259,71 @@
 
   layout();
   startAuto();
+})();
+
+/* ============================================================
+   Testimonials carousel (kind words from clients)
+   Dummy data for now; swap `TESTI` entries for real quotes.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var elQuote = document.getElementById("testiQuote");
+  if (!elQuote) return;
+  var elName = document.getElementById("testiName");
+  var elRole = document.getElementById("testiRole");
+  var elInitials = document.getElementById("testiInitials");
+  var prev = document.getElementById("testiPrev");
+  var next = document.getElementById("testiNext");
+
+  var TESTI = [
+    {
+      q: "Prisca is an exceptionally talented designer with a strong skill set spanning both UI/UX and graphic design. She brings a remarkable attention to detail to every project she undertakes. I had the pleasure of working closely with her at Shecluded, where she played a pivotal role in building the company’s website and developing the loan web application. Her ability to seamlessly blend aesthetics with functionality truly sets her apart.",
+      n: "David Atuma",
+      r: "Software Developer",
+      ini: "DA",
+    },
+    {
+      q: "Working with Prisca has been a great experience. She pays attention to details and is a goal-getter. She is also a person with good initiative. Very creative in the content space, she also communicates very well for good work flow.",
+      n: "Agbo Osayande",
+      r: "Content Lead",
+      ini: "AO",
+    },
+  ];
+
+  var i = 0;
+  function render() {
+    var t = TESTI[i];
+    elQuote.textContent = t.q;
+    if (elName) elName.textContent = t.n;
+    if (elRole) elRole.textContent = t.r;
+    if (elInitials) elInitials.textContent = t.ini;
+  }
+  function go(d) { i = (i + d + TESTI.length) % TESTI.length; render(); }
+
+  if (prev) prev.addEventListener("click", function () { go(-1); });
+  if (next) next.addEventListener("click", function () { go(1); });
+  render();
+})();
+
+/* ============================================================
+   Full-screen menu (hamburger)
+   ============================================================ */
+(function () {
+  "use strict";
+  var btn = document.getElementById("menuBtn");
+  var overlay = document.getElementById("menuOverlay");
+  if (!btn || !overlay) return;
+  function setOpen(open) {
+    overlay.classList.toggle("open", open);
+    btn.classList.toggle("active", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    overlay.setAttribute("aria-hidden", open ? "false" : "true");
+  }
+  btn.addEventListener("click", function () { setOpen(!overlay.classList.contains("open")); });
+  overlay.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
 })();
 
 /* ============================================================

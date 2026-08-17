@@ -12,36 +12,56 @@
     href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
     rel="stylesheet"
   />
+  <!-- Fraunces, the creative display face for the logo monogram + Hello heading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- ===== Top bar ===== -->
   <header class="topbar">
-    <a class="brand" href="#home" data-target="home">Prisca Olatunji</a>
+    <a class="brand" href="#home" data-target="home">priscy</a>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="#works" data-target="works">Works</a>
-      <a href="#about" data-target="about">About</a>
-      <a href="#contact" data-target="contact">Contact</a>
-    </nav>
-
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-      <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2" />
-        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" />
-      </svg>
-      <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
-      </svg>
-    </button>
+    <div class="topbar-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" />
+        </svg>
+        <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+        </svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
   </header>
+
+  <!-- ===== Full-screen menu ===== -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Primary">
+      <a href="#home" data-target="home">Home</a>
+      <a href="about.html">About me</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="#contact" data-target="contact">Contact</a>
+      <a href="gallery.html">Design Gallery</a>
+    </nav>
+  </div>
 
   <!-- ===== Side rail: section dots + scroll progress ===== -->
   <aside class="rail" aria-hidden="true">
     <div class="rail-dots">
       <button class="dot" data-target="home"><span>Home</span></button>
-      <button class="dot" data-target="works"><span>Works</span></button>
       <button class="dot" data-target="about"><span>About</span></button>
+      <button class="dot" data-target="gallery"><span>Gallery</span></button>
+      <button class="dot" data-target="testimonials"><span>Testimonials</span></button>
       <button class="dot" data-target="contact"><span>Contact</span></button>
     </div>
     <div class="rail-progress">
@@ -72,93 +92,174 @@
       </div>
     </section>
 
-    <!-- Works -->
-    <section class="panel panel-works" id="works">
-      <div class="panel-inner">
-        <div class="sec-head reveal">
-          <span class="sec-index">01</span>
-          <h2 class="sec-title">Selected Works</h2>
+    <!-- About : text left, image right -->
+    <section class="panel panel-about" id="about">
+      <div class="panel-inner about-hero">
+        <figure class="about-photo reveal" aria-label="Portrait of Prisca Olatunji">
+          <span class="about-photo-mark">PO</span>
+          <img src="assets/prisca.webp" alt="Prisca Olatunji" onerror="this.remove()" />
+        </figure>
+
+        <div class="about-text">
+          <h2 class="about-hello reveal">Hello.</h2>
+          <p class="about-body reveal">
+            I&rsquo;m a UI/UX Designer, Product Designer and vibe coder with 5 years of
+            experience. I&rsquo;m a user-first designer. I design clear products and build
+            them fast with Claude Code.
+          </p>
+          <p class="about-body reveal">
+            I design for real people: the ones who skip tutorials, staring blankly at a
+            screen wondering &ldquo;what now?&rdquo;, the colorblind users other websites keep
+            forgetting exist, and honestly, the ones who stopped reading this paragraph three
+            lines ago because it&rsquo;s getting too long. Stay with me!
+          </p>
+          <a class="btn dotted reveal" href="about.html">
+            Get to know me more
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
         </div>
-        <ul class="works-list">
-          <li class="work reveal">
-            <span class="work-no">/01</span>
-            <span class="work-name">Project One</span>
-            <span class="work-cat">Brand Identity</span>
-            <span class="work-year">2025</span>
-          </li>
-          <li class="work reveal">
-            <span class="work-no">/02</span>
-            <span class="work-name">Project Two</span>
-            <span class="work-cat">Web Design</span>
-            <span class="work-year">2025</span>
-          </li>
-          <li class="work reveal">
-            <span class="work-no">/03</span>
-            <span class="work-name">Project Three</span>
-            <span class="work-cat">Art Direction</span>
-            <span class="work-year">2024</span>
-          </li>
-          <li class="work reveal">
-            <span class="work-no">/04</span>
-            <span class="work-name">Project Four</span>
-            <span class="work-cat">Product Design</span>
-            <span class="work-year">2024</span>
-          </li>
-        </ul>
       </div>
     </section>
 
-    <!-- About -->
-    <section class="panel panel-about" id="about">
+    <!-- Services marquee : endless horizontal scroll of the disciplines -->
+    <div class="marquee" aria-label="Services">
+      <div class="marquee-track" aria-hidden="true">
+        <span>UI/UX</span><i>&bull;</i>
+        <span>Product Design</span><i>&bull;</i>
+        <span>Design Engineer</span><i>&bull;</i>
+        <span>Prototyping and Interactive Design</span><i>&bull;</i>
+        <span>Web and Mobile Design</span><i>&bull;</i>
+        <span>UI/UX</span><i>&bull;</i>
+        <span>Product Design</span><i>&bull;</i>
+        <span>Design Engineer</span><i>&bull;</i>
+        <span>Prototyping and Interactive Design</span><i>&bull;</i>
+        <span>Web and Mobile Design</span><i>&bull;</i>
+      </div>
+    </div>
+
+    <!-- My Gallery : 3 x 3 grid -->
+    <section class="panel panel-gallery" id="gallery">
+      <div class="gallery-grid">
+        <a class="gallery-card reveal" href="gallery.html">
+          <div class="gc-thumb">
+            <img src="works/gallery/toteez.webp" alt="Toteez mobile app UI design" loading="lazy" />
+            <div class="gc-hover" aria-hidden="true">
+              <div class="gc-marquee">
+                <span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a class="gallery-card reveal" href="gallery.html">
+          <div class="gc-thumb">
+            <img src="works/gallery/artsplit.webp" alt="ARTSPLIT art investment platform design" loading="lazy" />
+            <div class="gc-hover" aria-hidden="true">
+              <div class="gc-marquee">
+                <span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a class="gallery-card reveal" href="gallery.html">
+          <div class="gc-thumb">
+            <img src="works/gallery/shecluded.webp" alt="Shecluded finance platform for women, web design" loading="lazy" />
+            <div class="gc-hover" aria-hidden="true">
+              <div class="gc-marquee">
+                <span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a class="gallery-card reveal" href="legalpedia.html">
+          <div class="gc-thumb">
+            <img src="works/gallery/legalpedia.webp" alt="Legalpedia legal intelligence platform, web design" loading="lazy" />
+            <div class="gc-hover" aria-hidden="true">
+              <div class="gc-marquee">
+                <span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>View Project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials : kind words from clients -->
+    <section class="panel panel-testi" id="testimonials">
       <div class="panel-inner">
-        <div class="sec-head reveal">
-          <span class="sec-index">02</span>
-          <h2 class="sec-title">About</h2>
-        </div>
-        <div class="about-grid">
-          <p class="about-lead reveal">
-            I am a designer with a love for clean layouts, warm typography, and
-            interfaces that feel effortless. I help brands and teams turn ideas
-            into work that is clear, considered, and memorable.
-          </p>
-          <div class="about-meta reveal">
-            <div class="meta-block">
-              <h3>Services</h3>
-              <ul>
-                <li>Brand Identity</li>
-                <li>Web &amp; Product Design</li>
-                <li>Art Direction</li>
-              </ul>
+        <div class="testi-frame reveal">
+          <!-- vertical prev / next rail -->
+          <div class="testi-rail">
+            <button class="testi-nav" id="testiPrev" type="button" aria-label="Previous testimonial">
+              <span class="testi-nav-l">PREV</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <button class="testi-nav" id="testiNext" type="button" aria-label="Next testimonial">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6" /></svg>
+              <span class="testi-nav-l">NEXT</span>
+            </button>
+          </div>
+
+          <div class="testi-body">
+            <h2 class="testi-eyebrow">What others have to say</h2>
+            <p class="testi-quote" id="testiQuote">Prisca is an exceptionally talented designer with a strong skill set spanning both UI/UX and graphic design. She brings a remarkable attention to detail to every project she undertakes. I had the pleasure of working closely with her at Shecluded, where she played a pivotal role in building the company&rsquo;s website and developing the loan web application. Her ability to seamlessly blend aesthetics with functionality truly sets her apart.</p>
+            <div class="testi-client">
+              <span class="testi-name" id="testiName">David Atuma</span>
+              <span class="testi-role" id="testiRole">Software Developer</span>
             </div>
-            <div class="meta-block">
-              <h3>Tools</h3>
-              <ul>
-                <li>Figma</li>
-                <li>Adobe Suite</li>
-                <li>Webflow</li>
-              </ul>
-            </div>
+          </div>
+
+          <div class="testi-visual">
+            <div class="testi-avatar" aria-hidden="true"><span id="testiInitials">DA</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Footer -->
     <section class="panel panel-contact" id="contact">
-      <div class="panel-inner">
-        <div class="sec-head reveal">
-          <span class="sec-index">03</span>
-          <h2 class="sec-title">Contact</h2>
+      <footer class="site-footer reveal">
+        <div class="ft-cta">
+          <div class="ft-glow"></div>
+          <h2 class="ft-title">READY FOR US TO CREATE<br />SOME WHOLESOME MAGIC<br />TOGETHER? LET&rsquo;S TALK!</h2>
+          <p class="ft-sub">Your story deserves to be seen, let&rsquo;s bring vision to life.</p>
+          <a class="ft-collab" href="mailto:olatunjiprisca@gmail.com">
+            Let&rsquo;s Collaborate
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
         </div>
-        <p class="contact-lead reveal">Have a project in mind? Let us make something good.</p>
-        <a class="contact-mail reveal" href="mailto:hello@priscaolatunji.com">hello@priscaolatunji.com</a>
-        <ul class="contact-socials reveal">
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
-        </ul>
-        <p class="contact-foot reveal">&copy; <span id="year"></span> Prisca Olatunji. All rights reserved.</p>
-      </div>
+
+        <div class="ft-info">
+          <div class="ft-card ft-contactcard">
+            <p><strong>Email:</strong> olatunjiprisca@gmail.com</p>
+            <p><strong>Phone:</strong> +234 901 161 2467</p>
+          </div>
+          <div class="ft-card ft-links">
+            <span class="ft-links-h">Quick Links</span>
+            <a href="#home" data-target="home">HOME</a>
+            <a href="gallery.html">PROJECTS</a>
+            <a href="#contact" data-target="contact">CONTACT</a>
+          </div>
+        </div>
+
+        <div class="ft-socials">
+          <a class="ft-social" href="resume.pdf" target="_blank" rel="noopener">
+            <span class="ft-social-l">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h6M9 9h1" /></svg>
+              Resume
+            </span>
+            <svg class="ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+          <a class="ft-social" href="#" target="_blank" rel="noopener">
+            <span class="ft-social-l">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v16H4zM6 4a0 0 0 1 0 0" /><rect x="4" y="9" width="4" height="11" /><circle cx="6" cy="5" r="1.6" /><path d="M12 20V9h4v1.6a3.6 3.6 0 0 1 3.2-1.6c2.2 0 3.8 1.4 3.8 4.3V20h-4v-6c0-1.3-.6-2.1-1.8-2.1S16 12.8 16 14v6z" /></svg>
+              LinkedIn
+            </span>
+            <svg class="ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+
+        <p class="ft-copy">&copy; <span id="year"></span> Prisca Olatunji. All rights reserved.</p>
+      </footer>
     </section>
 
   </main>
