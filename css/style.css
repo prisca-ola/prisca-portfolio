@@ -835,7 +835,7 @@ a.btn { color: #fff; }
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(130% 120% at 50% 50%, rgba(5, 3, 2, 0) 52%, rgba(5, 3, 2, 0.55) 100%),
+    linear-gradient(rgba(8, 8, 10, 0.74), rgba(8, 8, 10, 0.74)),
     url("../works/testi-bg.webp") center / cover no-repeat;
 }
 .panel-testi .panel-inner { position: relative; z-index: 1; }
