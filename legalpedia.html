@@ -33,7 +33,7 @@
       overflow-x: hidden;
       overflow-y: visible;
     }
-    /* Subtle film grain over the dark canvas (same as the other case studies) */
+    /* Film grain over the dark canvas */
     .cs-body::before {
       content: "";
       position: fixed;
@@ -42,7 +42,7 @@
       pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 160px 160px;
-      opacity: 0.13;
+      opacity: 0.2;
       mix-blend-mode: screen;
     }
     /* Keep all content above the grain layer */
@@ -66,6 +66,53 @@
     .cs-herofull { width: 100%; display: block; }
     .cs-herofull img { display: block; width: 100%; height: auto; }
 
+    /* Shared centred column */
+    .cs-col { max-width: 1240px; margin: 0 auto; padding: 0 clamp(24px, 6vw, 72px); }
+
+    /* ---- Intro : Description (left) + fields grid (right) ---- */
+    .cs-intro {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 96px);
+      align-items: start;
+      padding: clamp(48px, 7vw, 92px) 0 clamp(48px, 7vw, 88px);
+      border-bottom: 1px solid var(--cs-line);
+    }
+    .cs-desc h2 { margin: 0 0 20px; font-size: clamp(24px, 2.8vw, 32px); font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+    .cs-desc p { margin: 0; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 48ch; }
+    .cs-desc p + p { margin-top: 16px; }
+    .cs-facts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 44px) clamp(28px, 4vw, 60px); }
+    .cs-facts .f { display: flex; flex-direction: column; gap: 8px; }
+    .cs-facts .k { font-size: 14px; color: var(--ink-2); }
+    .cs-facts .v { font-size: clamp(17px, 1.7vw, 21px); font-weight: 700; color: var(--ink); line-height: 1.35; }
+
+    /* ---- Dashed-stroke live-site button ---- */
+    .cs-livecta { display: flex; justify-content: center; padding: clamp(16px, 3vw, 32px) 0 clamp(20px, 4vw, 40px); }
+    .cs-live {
+      display: inline-flex; align-items: center; gap: 12px;
+      height: 56px; padding: 0 32px; border-radius: 999px;
+      border: 1.5px dashed var(--gold); background: transparent; color: var(--gold);
+      font-size: 16px; font-weight: 600;
+      transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+    }
+    .cs-live:hover { background: var(--gold); color: var(--nv); border-style: solid; }
+    .cs-live svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Designs section heading */
+    .cs-designs-head {
+      text-align: center; margin: 0; padding: clamp(48px, 7vw, 88px) 0 clamp(28px, 4vw, 44px);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+    }
+    .cs-designs-head .sub { display: block; margin-top: 10px; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.01em; text-transform: none; color: var(--ink); }
+
+    /* ---- The designs : elevated screens floating on the navy frame ---- */
+    .cs-designs { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px); }
+    .cs-screen {
+      display: block; width: 100%; height: auto;
+      border-radius: 14px;
+      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.5);
+      margin-bottom: clamp(36px, 5vw, 72px);
+    }
+    .cs-screen:last-child { margin-bottom: 0; }
+
     /* Back button */
     .cs-cta { display: flex; justify-content: center; padding: clamp(56px, 8vw, 104px) 24px; }
     .cs-back {
@@ -74,6 +121,11 @@
       transition: background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
     }
     .cs-back:hover { background: var(--gold); border-color: var(--gold); color: var(--nv); }
+
+    @media (max-width: 820px) {
+      .cs-intro { grid-template-columns: 1fr; gap: 40px; }
+      .cs-facts { gap: 28px 40px; }
+    }
   </style>
 </head>
 <body class="cs-body">
@@ -102,10 +154,67 @@
       <img src="works/legalpedia/hero.webp" width="2400" height="1610" alt="Legalpedia case study cover mockup" />
     </section>
 
-    <!-- ===== Case study content to come =====
-         Follow the same structure as kinetyq.html / ajo.html / edibles.html:
-         .cs-col > .cs-intro (Description + facts), .cs-livecta, .cs-designs-head,
-         .cs-designs (the screens). Left intentionally unbuilt for now. -->
+    <!-- ===== Horizontal intro : meta + columns ===== -->
+    <section class="cs-col">
+      <div class="cs-intro">
+        <div class="cs-desc">
+          <h2>Description</h2>
+          <p>
+            Legalpedia is a legal intelligence platform built for the people and organizations
+            responsible for getting legal work right in Nigeria, from court preparation and
+            judgment writing to law firm productivity, corporate legal response and legal
+            education.
+          </p>
+          <p>
+            I designed the full product: the marketing website, the user-facing app and the
+            super admin console. The goal was to take a dense, document-heavy domain and give it
+            a clear, confident and modern interface that people actually enjoy working in.
+          </p>
+        </div>
+
+        <div class="cs-facts">
+          <div class="f"><span class="k">Category</span><span class="v">Product Design</span></div>
+          <div class="f"><span class="k">Duration</span><span class="v">2025</span></div>
+          <div class="f"><span class="k">Designer</span><span class="v">Prisca Olatunji</span></div>
+          <div class="f"><span class="k">Services</span><span class="v">UI/UX Design, Design System</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== The website ===== -->
+    <h2 class="cs-designs-head">The designs<span class="sub">The website</span></h2>
+    <div class="cs-designs">
+      <img class="cs-screen" src="works/legalpedia/site/01-home.webp" alt="Legalpedia marketing home page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/02-for-lawyers.webp" alt="Legalpedia for lawyers page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/03-for-lawfirms.webp" alt="Legalpedia for law firms page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/04-ai-counsel.webp" alt="Legalpedia AI Counsel page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/05-pricing.webp" alt="Legalpedia pricing page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/06-about.webp" alt="Legalpedia about us page" loading="lazy" />
+    </div>
+
+    <!-- ===== The user app ===== -->
+    <h2 class="cs-designs-head">The product<span class="sub">The user app</span></h2>
+    <div class="cs-designs">
+      <img class="cs-screen" src="works/legalpedia/user/01-signup.webp" alt="Legalpedia user sign up" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/user/02-home.webp" alt="Legalpedia returning user home" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/user/03-notes.webp" alt="Legalpedia public notes" loading="lazy" />
+    </div>
+
+    <!-- ===== Super Admin ===== -->
+    <h2 class="cs-designs-head">The console<span class="sub">Super Admin</span></h2>
+    <div class="cs-designs">
+      <img class="cs-screen" src="works/legalpedia/admin/01-login.webp" alt="Legalpedia admin login" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/02-analytics.webp" alt="Legalpedia platform analytics" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/03-user-management.webp" alt="Legalpedia profile and user management" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/04-access-control.webp" alt="Legalpedia access control page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/05-chat-management.webp" alt="Legalpedia chat management" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/06-edit-judgment.webp" alt="Legalpedia edit judgment" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/07-state-rules.webp" alt="Legalpedia state rules" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/08-legal-maxim.webp" alt="Legalpedia legal maxim" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/09-forms-precedent.webp" alt="Legalpedia forms and precedent" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/10-articles.webp" alt="Legalpedia articles" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/11-section-duration.webp" alt="Legalpedia section duration" loading="lazy" />
+    </div>
 
     <div class="cs-cta">
       <a class="cs-back" href="index.html#works">&larr; Back to all work</a>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &middot; Prisca Olatunji</title>
+  <meta name="description" content="Let's talk. Contact Prisca Olatunji, UI/UX and product designer." />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ============ Contact (rebuilt from the former Framer contact page) ============ */
+    :root { --pg:#161616; --card:#0c0c0c; --ink:#f3f1ec; --ink-2:#a29e97; --line:rgba(255,255,255,0.12); }
+    html, body { height:auto; overflow:visible; }
+    .ct-body { background:var(--pg); color:var(--ink); overflow-x:hidden; font-family:"Satoshi",system-ui,sans-serif; }
+    /* Film-grain noise over the canvas */
+    .ct-body::before { display:block; opacity:0.16; }
+    .disp { font-family:"Clash Display","Satoshi",sans-serif; }
+
+    .ct-body .topbar { background:var(--pg); border-bottom:1px solid var(--line); z-index:100; }
+    .ct-body .brand, .ct-body .menu-btn { color:var(--ink); }
+    .ct-body .menu-overlay { background:var(--pg); }
+    .ct-body .menu-nav a { color:var(--ink); }
+
+    .ct-main { position:relative; z-index:1; padding:calc(var(--topbar-h) + clamp(28px,5vh,56px)) var(--margin) clamp(40px,7vh,80px); }
+    .ct-col { max-width: 520px; margin: 0 auto; }     /* centred column */
+
+    .ct-title { font-weight:600; font-size:clamp(52px,8vw,104px); letter-spacing:-0.02em; line-height:0.95; color:var(--ink); margin:0 0 clamp(28px,4vh,44px); }
+
+    /* Contact cards */
+    .ct-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .ct-card {
+      background:var(--card); border:none; border-radius:12px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+      text-align:center; padding:20px 16px; min-height:84px;
+      transition:background 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    a.ct-card:hover { background:#1a1a1a; transform:translateY(-2px); }
+    .ct-card.wide { grid-column:1 / -1; }
+    .ct-k { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-2); }
+    .ct-v { font-size:clamp(15px,1.6vw,18px); font-weight:500; color:var(--ink); word-break:break-word; }
+    .ct-ico { width:26px; height:26px; display:grid; place-items:center; color:var(--ink); }
+    .ct-ico svg { width:22px; height:22px; fill:currentColor; }
+    .ct-ico .be { font-family:"Clash Display",serif; font-weight:600; font-size:19px; line-height:1; }
+
+    /* Message form */
+    .ct-formhead { margin:clamp(28px,4vh,40px) 0 16px; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-2); text-align:center; }
+    .ct-form { display:flex; flex-direction:column; gap:12px; }
+    .ct-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .ct-form input, .ct-form textarea {
+      width:100%; background:var(--card); border:1px solid var(--line); border-radius:10px;
+      color:var(--ink); font-family:inherit; font-size:15px; padding:14px 16px;
+      transition:border-color 0.25s var(--ease), background 0.25s var(--ease);
+    }
+    .ct-form textarea { min-height:130px; resize:vertical; }
+    .ct-form input::placeholder, .ct-form textarea::placeholder { color:var(--ink-2); }
+    .ct-form input:focus, .ct-form textarea:focus { outline:none; border-color:var(--primary); background:#2a2a2a; }
+    .ct-submit {
+      height:54px; border:none; border-radius:10px; background:var(--primary); color:#fff;
+      font-family:inherit; font-size:15px; font-weight:600; letter-spacing:0.04em; cursor:pointer;
+      transition:filter 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .ct-submit:hover { filter:brightness(1.07); transform:translateY(-1px); }
+    .ct-note { font-size:14px; color:var(--ink-2); text-align:center; padding-top:6px; min-height:20px; }
+    .ct-note.ok { color:#4bd18a; }
+
+    /* Name marquee footer */
+    .ct-marquee { overflow:hidden; border-top:1px solid var(--line); margin-top:clamp(48px,8vh,96px); padding:clamp(16px,3vw,30px) 0; }
+    .ct-marquee-track { display:inline-flex; align-items:center; white-space:nowrap; animation:ctMarq 24s linear infinite; }
+    .ct-marquee-track span { font-weight:600; font-size:clamp(34px,6vw,80px); letter-spacing:-0.01em; color:var(--ink); padding:0 0.35em; }
+    .ct-marquee-track i { color:var(--ink-2); font-style:normal; font-size:clamp(13px,1.6vw,22px); }
+    @keyframes ctMarq { to { transform:translateX(-50%); } }
+    @media (prefers-reduced-motion:reduce) { .ct-marquee-track { animation:none; } }
+
+    @media (max-width:520px) { .ct-row { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="ct-body">
+  <header class="topbar">
+    <a class="brand" href="index.html">priscy</a>
+    <div class="topbar-actions">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About me</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="contact.html">Contact</a>
+      <a href="gallery.html">Design Gallery</a>
+    </nav>
+  </div>
+
+  <main class="ct-main">
+    <div class="ct-col">
+      <h1 class="ct-title disp">Let&rsquo;s talk</h1>
+
+      <div class="ct-cards">
+        <a class="ct-card wide" href="mailto:olatunjiprisca@gmail.com">
+          <span class="ct-k">Email</span>
+          <span class="ct-v">olatunjiprisca@gmail.com</span>
+        </a>
+        <a class="ct-card wide" href="tel:+2349011612467">
+          <span class="ct-k">Phone</span>
+          <span class="ct-v">+234 901 161 2467</span>
+        </a>
+
+        <a class="ct-card" href="#" target="_blank" rel="noopener">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.28 8.02h4.4V23H.28V8.02zM7.6 8.02h4.22v2.05h.06c.59-1.06 2.02-2.18 4.16-2.18 4.45 0 5.27 2.75 5.27 6.32V23h-4.4v-6.9c0-1.64-.03-3.76-2.3-3.76-2.3 0-2.65 1.79-2.65 3.64V23H7.6V8.02z"/></svg></span>
+          <span class="ct-k">LinkedIn</span>
+        </a>
+        <a class="ct-card" href="#" target="_blank" rel="noopener">
+          <span class="ct-ico"><span class="be">B&#275;</span></span>
+          <span class="ct-k">Behance</span>
+        </a>
+        <a class="ct-card" href="resume.pdf" target="_blank" rel="noopener">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+          <span class="ct-k">Resume</span>
+        </a>
+        <a class="ct-card" href="#" target="_blank" rel="noopener">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3H20.5l-6.49 7.42L21.75 21h-5.98l-4.68-6.12L5.72 21H2.75l6.94-7.93L2.5 3h6.13l4.23 5.6L17.53 3zm-1.05 16.2h1.65L7.6 4.7H5.83l10.65 14.5z"/></svg></span>
+          <span class="ct-k">Twitter</span>
+        </a>
+      </div>
+
+      <p class="ct-formhead">Send me a message</p>
+      <form class="ct-form" id="ctForm" novalidate>
+        <input type="text" name="name" placeholder="Name" autocomplete="name" required />
+        <div class="ct-row">
+          <input type="email" name="email" placeholder="Email" autocomplete="email" required />
+          <input type="tel" name="phone" placeholder="Phone" autocomplete="tel" />
+        </div>
+        <textarea name="message" placeholder="Enter your Message" required></textarea>
+        <button class="ct-submit" type="submit">Submit</button>
+        <p class="ct-note" id="ctNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+
+  <div class="ct-marquee" aria-hidden="true">
+    <div class="ct-marquee-track disp">
+      <span>Prisca Olatunji</span><i>&#9679;</i><span>Prisca Olatunji</span><i>&#9679;</i><span>Prisca Olatunji</span><i>&#9679;</i>
+      <span>Prisca Olatunji</span><i>&#9679;</i><span>Prisca Olatunji</span><i>&#9679;</i><span>Prisca Olatunji</span><i>&#9679;</i>
+    </div>
+  </div>
+
+  <script>
+    /* Menu */
+    (function () {
+      var btn = document.getElementById("menuBtn"), overlay = document.getElementById("menuOverlay");
+      if (!btn || !overlay) return;
+      function setOpen(o) {
+        overlay.classList.toggle("open", o); btn.classList.toggle("active", o);
+        btn.setAttribute("aria-expanded", o ? "true" : "false");
+        btn.setAttribute("aria-label", o ? "Close menu" : "Open menu");
+        overlay.setAttribute("aria-hidden", o ? "false" : "true");
+      }
+      btn.addEventListener("click", function () { setOpen(!overlay.classList.contains("open")); });
+      overlay.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    })();
+
+    /* Contact form (front-end stub, wire to an email endpoint to send for real) */
+    (function () {
+      var form = document.getElementById("ctForm"), note = document.getElementById("ctNote");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var d = new FormData(form);
+        if (!d.get("name") || !d.get("email") || !d.get("message")) {
+          note.className = "ct-note"; note.textContent = "Please fill in your name, email and message.";
+          return;
+        }
+        note.className = "ct-note ok";
+        note.textContent = "Thanks! Your message is ready — connect a form endpoint to send it.";
+        form.reset();
+      });
+    })();
+
+    /* Custom trailing cursor (mouse only) */
+    (function () {
+      var dot = document.createElement("div"); dot.className = "cursor-dot"; document.body.appendChild(dot);
+      var x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, shown = false, rafId = null;
+      function show() { if (!shown) { shown = true; dot.classList.add("show"); } if (rafId === null) rafId = requestAnimationFrame(raf); }
+      function onMove(cx, cy) { tx = cx; ty = cy; show(); }
+      if ("PointerEvent" in window) { addEventListener("pointermove", function (e) { if (e.pointerType && e.pointerType !== "mouse") return; onMove(e.clientX, e.clientY); }, { passive: true }); }
+      else { addEventListener("mousemove", function (e) { onMove(e.clientX, e.clientY); }, { passive: true }); }
+      document.addEventListener("mouseleave", function () { shown = false; dot.classList.remove("show"); });
+      document.addEventListener("mouseenter", function () { if (shown) dot.classList.add("show"); });
+      var HOT = "a, button, input, textarea, .menu-btn";
+      document.addEventListener("mouseover", function (e) { if (e.target.closest && e.target.closest(HOT)) dot.classList.add("hot"); });
+      document.addEventListener("mouseout", function (e) { if (e.target.closest && e.target.closest(HOT)) dot.classList.remove("hot"); });
+      function raf() { x += (tx - x) * 0.18; y += (ty - y) * 0.18; dot.style.transform = "translate(" + x + "px," + y + "px) translate(-50%, -50%)"; rafId = requestAnimationFrame(raf); }
+    })();
+  </script>
+</body>
+</html>

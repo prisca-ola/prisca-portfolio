@@ -629,20 +629,21 @@ html[data-theme="dark"] .ico-moon { opacity: 1; transform: scale(1) rotate(0); }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 52px;
-  padding: 0 26px;
-  border-radius: 999px;
-  border: 1.5px solid var(--primary);
-  background: transparent;
-  color: var(--primary);
+  height: 54px;
+  padding: 0 30px;
+  border-radius: 10px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+  transition: filter 0.3s var(--ease), transform 0.3s var(--ease);
 }
-.btn:hover { background: var(--primary); color: var(--bg); border-color: var(--primary); }
+a.btn { color: #fff; }
+.btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
 .btn svg {
   width: 16px; height: 16px;
   fill: none; stroke: currentColor; stroke-width: 2;
@@ -689,17 +690,31 @@ html[data-theme="dark"] .ico-moon { opacity: 1; transform: scale(1) rotate(0); }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ---------- My Gallery : 3 x 3 grid ---------- */
-.panel-gallery { align-items: center; }  /* row sits within the page margin */
+.panel-gallery { flex-direction: column; align-items: stretch; justify-content: center; }  /* header stacked above the grid */
 .gallery-wrap { width: 100%; max-width: none; }
 .gallery-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s4);
-  flex-wrap: wrap;
-  margin-bottom: var(--s6);
+  display: block;
+  width: 100%;
+  margin-bottom: clamp(28px, 4vw, 48px);
 }
-.gallery-head .sec-head { margin-bottom: 0; }
+.gal-eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.gal-line { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+.gal-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(30px, 4.4vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0;
+}
 .gallery-grid {
   width: 100%;
   display: grid;
@@ -1067,9 +1082,9 @@ a.ft-collab { color: #fff; }
 }
 
 /* ---------- Responsive ---------- */
-/* The 64px page margin steps down to 24px on phones. */
+/* The 64px page margin steps down to 16px on phones. */
 @media (max-width: 760px) {
-  :root { --margin: 24px; }
+  :root { --margin: 16px; }
   .nav { display: none; }
   .rail { display: none; }
   .about-grid { grid-template-columns: 1fr; }
