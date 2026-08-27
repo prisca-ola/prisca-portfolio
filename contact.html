@@ -147,7 +147,9 @@
       </div>
 
       <p class="ct-formhead">Send me a message</p>
-      <form class="ct-form" id="ctForm" novalidate>
+      <form class="ct-form" id="ctForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden><label>Leave this field empty: <input name="bot-field" /></label></p>
         <input type="text" name="name" placeholder="Name" autocomplete="name" required />
         <div class="ct-row">
           <input type="email" name="email" placeholder="Email" autocomplete="email" required />
@@ -183,13 +185,10 @@
       document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
     })();
 
-    /* Contact form (front-end stub, wire to an email endpoint to send for real) */
+    /* Contact form -> Netlify Forms (AJAX submit so we keep the inline confirmation). */
     (function () {
       var form = document.getElementById("ctForm"), note = document.getElementById("ctNote");
       if (!form) return;
-      // Google Apps Script Web App URL that appends each submission to the spreadsheet.
-      // Deploy the Apps Script (see the setup steps you were given), then paste its /exec URL below.
-      var FORM_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var d = new FormData(form);
@@ -198,17 +197,14 @@
           return;
         }
         var btn = form.querySelector(".ct-submit");
-        if (!FORM_ENDPOINT || FORM_ENDPOINT.indexOf("PASTE_YOUR") === 0) {
-          note.className = "ct-note"; note.textContent = "Form endpoint not connected yet.";
-          return;
-        }
         if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
         note.className = "ct-note"; note.textContent = "Sending…";
         var body = new URLSearchParams();
         d.forEach(function (v, k) { body.append(k, v); });
-        body.append("page", location.pathname);
-        fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", body: body })
-          .then(function () {
+        // Netlify captures the submission when we POST the encoded form (incl. form-name) to the site root.
+        fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() })
+          .then(function (r) {
+            if (!r.ok) throw new Error("bad status");
             note.className = "ct-note ok";
             note.textContent = "Thanks! Your message has been sent.";
             form.reset();
