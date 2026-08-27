@@ -73,6 +73,26 @@
     .hm-testi { padding:clamp(48px,8vh,96px) var(--margin); }
     .hm-testi .panel-inner { max-width:1240px; margin:0 auto; }
 
+    /* ---------- FAQ (centred; items use the contact-form field style) ---------- */
+    .hm-faq { padding:clamp(60px,10vh,120px) var(--margin); }
+    .hm-faq-in { max-width:720px; margin:0 auto; }
+    .hm-faq-title { display:flex; flex-direction:column; align-items:center; gap:8px; margin:0 0 clamp(28px,4vw,48px); text-align:center; color:var(--ink); }
+    .hm-faq-t1 { font-size:52px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; }
+    .hm-faq-t2 { font-size:24px; font-weight:500; line-height:1.15; color:var(--ink-2); }
+    @media (max-width:520px) { .hm-faq-t1 { font-size:34px; } .hm-faq-t2 { font-size:18px; } }
+    .hm-faq-list { display:flex; flex-direction:column; gap:12px; }
+    .faq-item { background:#0c0c0c; border:1px solid rgba(255,255,255,0.12); border-radius:10px; overflow:hidden; transition:border-color 0.25s var(--ease); }
+    .faq-item.open { border-color:rgba(255,255,255,0.24); }
+    .faq-q { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 18px; background:none; border:none; color:var(--ink-2); font-family:inherit; font-size:clamp(15px,1.6vw,17px); font-weight:500; text-align:left; cursor:pointer; transition:color 0.25s var(--ease); }
+    .faq-q:hover, .faq-item.open .faq-q { color:var(--ink); }
+    .faq-ico { flex:none; position:relative; width:20px; height:20px; }
+    .faq-ico::before, .faq-ico::after { content:""; position:absolute; background:var(--primary); border-radius:2px; transition:transform 0.3s var(--ease), opacity 0.3s var(--ease); }
+    .faq-ico::before { left:9px; top:3px; width:2px; height:14px; }
+    .faq-ico::after { top:9px; left:3px; height:2px; width:14px; }
+    .faq-item.open .faq-ico::before { transform:scaleY(0); opacity:0; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s var(--ease); }
+    .faq-a-inner { padding:0 18px 18px; font-size:15px; line-height:1.7; color:var(--ink-2); }
+
     /* ---------- Footer wrapper (keeps the current site footer) ---------- */
     .hm-foot-wrap { padding:clamp(40px,7vh,90px) var(--margin) clamp(48px,8vh,80px); }
 
@@ -207,6 +227,50 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="hm-faq" id="faq">
+      <div class="hm-faq-in">
+        <h2 class="hm-faq-title reveal">
+          <span class="hm-faq-t1">Have any question?</span>
+          <span class="hm-faq-t2">I have some answers</span>
+        </h2>
+        <div class="hm-faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">Can we book a call with you?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">What&rsquo;s your process?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">Do you work on contract projects?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">What tools do you use?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">Do you build as well as design?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">What&rsquo;s your turnaround time?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">Are you available for remote work?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">Are you available for mentorship?<span class="faq-ico" aria-hidden="true"></span></button>
+            <div class="faq-a"><div class="faq-a-inner">Answer coming soon.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer (current site footer) -->
     <div class="hm-foot-wrap">
       <footer class="site-footer reveal">
@@ -293,6 +357,20 @@
 
     /* Footer year */
     (function () { var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear(); })();
+
+    /* FAQ accordion */
+    (function () {
+      var items = document.querySelectorAll(".faq-item");
+      items.forEach(function (item) {
+        var q = item.querySelector(".faq-q"), a = item.querySelector(".faq-a");
+        if (!q || !a) return;
+        q.addEventListener("click", function () {
+          var open = item.classList.toggle("open");
+          q.setAttribute("aria-expanded", open ? "true" : "false");
+          a.style.maxHeight = open ? a.scrollHeight + "px" : "0px";
+        });
+      });
+    })();
 
     /* Scroll reveal */
     (function () {
