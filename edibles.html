@@ -6,13 +6,32 @@
   <title>Edibles Case Study · Prisca Olatunji</title>
   <meta name="description" content="Edibles, a food commerce app that connects vendors with food lovers. A product design case study by Prisca Olatunji." />
 
+  <!-- Social share (Open Graph + Twitter) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Prisca Olatunji" />
+  <meta property="og:title" content="Edibles, Case Study" />
+  <meta property="og:url" content="https://priscydesign.netlify.app/edibles.html" />
+  <meta property="og:description" content="A food commerce app that connects vendors with food lovers. A product design case study by Prisca Olatunji." />
+  <meta property="og:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@OfficialPrisca" />
+  <meta name="twitter:creator" content="@OfficialPrisca" />
+  <meta name="twitter:title" content="Edibles, Case Study" />
+  <meta name="twitter:description" content="A food commerce app that connects vendors with food lovers. A product design case study by Prisca Olatunji." />
+  <meta name="twitter:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+
   <!-- Satoshi font (Fontshare) -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link
     href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
     rel="stylesheet"
   />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/nav.js" defer></script>
 
   <style>
     /* ---- Edibles case study : deep-green frame, leaf-green accent, Satoshi ---- */
@@ -46,7 +65,8 @@
       mix-blend-mode: screen;
     }
     /* Keep all content above the grain layer */
-    .cs-topbar, .cs-main { position: relative; z-index: 1; }
+    /* Topbar stays fixed (from the shared stylesheet); only the main content needs raising above the grain. */
+    .cs-main { position: relative; z-index: 1; }
 
     /* Top bar */
     .cs-topbar { background: var(--nv); border-bottom: 1px solid var(--cs-line); }
@@ -190,7 +210,7 @@
           <div class="f"><span class="k">Category</span><span class="v">Visual Design</span></div>
           <div class="f"><span class="k">Duration</span><span class="v">2025 - 2026</span></div>
           <div class="f"><span class="k">Designer</span><span class="v">Prisca Olatunji</span></div>
-          <div class="f"><span class="k">Services</span><span class="v">UI Design, Claude-Code</span></div>
+          <div class="f"><span class="k">Services</span><span class="v">UI Design</span></div>
         </div>
       </div>
 

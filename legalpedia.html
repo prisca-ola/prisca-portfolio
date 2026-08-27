@@ -6,13 +6,32 @@
   <title>Legalpedia Case Study &middot; Prisca Olatunji</title>
   <meta name="description" content="Legalpedia, a legal intelligence platform. A product design case study by Prisca Olatunji." />
 
+  <!-- Social share (Open Graph + Twitter) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Prisca Olatunji" />
+  <meta property="og:title" content="Legalpedia, Case Study" />
+  <meta property="og:url" content="https://priscydesign.netlify.app/legalpedia.html" />
+  <meta property="og:description" content="A legal intelligence platform. A product design case study by Prisca Olatunji." />
+  <meta property="og:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@OfficialPrisca" />
+  <meta name="twitter:creator" content="@OfficialPrisca" />
+  <meta name="twitter:title" content="Legalpedia, Case Study" />
+  <meta name="twitter:description" content="A legal intelligence platform. A product design case study by Prisca Olatunji." />
+  <meta name="twitter:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+
   <!-- Satoshi font (Fontshare) -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link
     href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
     rel="stylesheet"
   />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/nav.js" defer></script>
 
   <style>
     /* ---- Legalpedia case study : navy frame, gold accent, Satoshi ---- */
@@ -46,7 +65,8 @@
       mix-blend-mode: screen;
     }
     /* Keep all content above the grain layer */
-    .cs-topbar, .cs-main { position: relative; z-index: 1; }
+    /* Topbar stays fixed (from the shared stylesheet); only the main content needs raising above the grain. */
+    .cs-main { position: relative; z-index: 1; }
 
     /* Top bar */
     .cs-topbar { background: var(--nv); border-bottom: 1px solid var(--cs-line); }
@@ -146,6 +166,10 @@
       .cs-intro { grid-template-columns: 1fr; gap: 40px; }
       .cs-facts { gap: 28px 40px; }
     }
+    @media (max-width: 480px) {
+      .cs-facts { grid-template-columns: 1fr; gap: 24px; }
+      .cs-screen { border-radius: 10px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
+    }
   </style>
 </head>
 <body class="cs-body">
@@ -196,10 +220,10 @@
       </div>
     </section>
 
-    <!-- ===== The website ===== -->
-    <h2 class="cs-designs-head">The designs<span class="sub">The website</span></h2>
+    <!-- ===== Super Admin (first design) ===== -->
+    <h2 class="cs-designs-head">The console<span class="sub">Super Admin</span></h2>
     <div class="cs-designs">
-      <img class="cs-screen" src="works/legalpedia/site/01-home.webp" alt="Legalpedia marketing home page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/admin/01-login.webp" alt="Legalpedia admin login" loading="lazy" />
     </div>
 
     <!-- ===== The Challenge / Goal / Contribution ===== -->
@@ -232,26 +256,8 @@
       </div>
     </section>
 
+    <!-- ===== Super Admin (remaining designs) ===== -->
     <div class="cs-designs">
-      <img class="cs-screen" src="works/legalpedia/site/02-for-lawyers.webp" alt="Legalpedia for lawyers page" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/site/03-for-lawfirms.webp" alt="Legalpedia for law firms page" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/site/04-ai-counsel.webp" alt="Legalpedia AI Counsel page" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/site/05-pricing.webp" alt="Legalpedia pricing page" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/site/06-about.webp" alt="Legalpedia about us page" loading="lazy" />
-    </div>
-
-    <!-- ===== The user app ===== -->
-    <h2 class="cs-designs-head">The product<span class="sub">The user app</span></h2>
-    <div class="cs-designs">
-      <img class="cs-screen" src="works/legalpedia/user/01-signup.webp" alt="Legalpedia user sign up" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/user/02-home.webp" alt="Legalpedia returning user home" loading="lazy" />
-      <img class="cs-screen" src="works/legalpedia/user/03-notes.webp" alt="Legalpedia public notes" loading="lazy" />
-    </div>
-
-    <!-- ===== Super Admin ===== -->
-    <h2 class="cs-designs-head">The console<span class="sub">Super Admin</span></h2>
-    <div class="cs-designs">
-      <img class="cs-screen" src="works/legalpedia/admin/01-login.webp" alt="Legalpedia admin login" loading="lazy" />
       <img class="cs-screen" src="works/legalpedia/admin/02-analytics.webp" alt="Legalpedia platform analytics" loading="lazy" />
       <img class="cs-screen" src="works/legalpedia/admin/03-user-management.webp" alt="Legalpedia profile and user management" loading="lazy" />
       <img class="cs-screen" src="works/legalpedia/admin/04-access-control.webp" alt="Legalpedia access control page" loading="lazy" />
@@ -262,6 +268,25 @@
       <img class="cs-screen" src="works/legalpedia/admin/09-forms-precedent.webp" alt="Legalpedia forms and precedent" loading="lazy" />
       <img class="cs-screen" src="works/legalpedia/admin/10-articles.webp" alt="Legalpedia articles" loading="lazy" />
       <img class="cs-screen" src="works/legalpedia/admin/11-section-duration.webp" alt="Legalpedia section duration" loading="lazy" />
+    </div>
+
+    <!-- ===== The website ===== -->
+    <h2 class="cs-designs-head">The designs<span class="sub">The website</span></h2>
+    <div class="cs-designs">
+      <img class="cs-screen" src="works/legalpedia/site/01-home.webp" alt="Legalpedia marketing home page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/02-for-lawyers.webp" alt="Legalpedia for lawyers page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/03-for-lawfirms.webp" alt="Legalpedia for law firms page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/04-ai-counsel.webp" alt="Legalpedia AI Counsel page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/05-pricing.webp" alt="Legalpedia pricing page" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/site/06-about.webp" alt="Legalpedia about us page" loading="lazy" />
+    </div>
+
+    <!-- ===== The user app (last) ===== -->
+    <h2 class="cs-designs-head">The product<span class="sub">The user app</span></h2>
+    <div class="cs-designs">
+      <img class="cs-screen" src="works/legalpedia/user/01-signup.webp" alt="Legalpedia user sign up" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/user/02-home.webp" alt="Legalpedia returning user home" loading="lazy" />
+      <img class="cs-screen" src="works/legalpedia/user/03-notes.webp" alt="Legalpedia public notes" loading="lazy" />
     </div>
 
     <section class="cs-nav">

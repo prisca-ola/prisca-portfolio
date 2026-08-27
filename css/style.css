@@ -100,6 +100,14 @@ body * { font-family: var(--font) !important; }
   z-index: 100;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease), backdrop-filter 0.35s var(--ease);
+}
+/* Fixed top bar goes transparent once the page is scrolled (blur keeps text legible) */
+.topbar.scrolled {
+  background: transparent;
+  border-bottom-color: transparent;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .brand {
@@ -1018,6 +1026,8 @@ a.ft-collab { color: #fff; }
 .ft-contactcard p { font-size: 14px; color: var(--muted); line-height: 1.5; }
 .ft-contactcard p + p { margin-top: var(--s2); }
 .ft-contactcard strong { color: var(--text); font-weight: 600; }
+.ft-contactcard a { color: inherit; transition: color 0.3s var(--ease); }
+.ft-contactcard a:hover { color: var(--primary); }
 .ft-links { display: flex; flex-direction: column; gap: 10px; }
 .ft-links-h { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 .ft-links a { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); width: max-content; transition: color 0.3s var(--ease); }

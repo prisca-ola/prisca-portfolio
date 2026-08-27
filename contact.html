@@ -6,9 +6,28 @@
   <title>Contact &middot; Prisca Olatunji</title>
   <meta name="description" content="Let's talk. Contact Prisca Olatunji, UI/UX and product designer." />
 
+  <!-- Social share (Open Graph + Twitter) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Prisca Olatunji" />
+  <meta property="og:title" content="Contact Prisca Olatunji" />
+  <meta property="og:url" content="https://priscydesign.netlify.app/contact.html" />
+  <meta property="og:description" content="Let's talk. Contact Prisca Olatunji, UI/UX and product designer." />
+  <meta property="og:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@OfficialPrisca" />
+  <meta name="twitter:creator" content="@OfficialPrisca" />
+  <meta name="twitter:title" content="Contact Prisca Olatunji" />
+  <meta name="twitter:description" content="Let's talk. Contact Prisca Olatunji, UI/UX and product designer." />
+  <meta name="twitter:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
+
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-180.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/nav.js" defer></script>
 
   <style>
     /* ============ Contact (rebuilt from the former Framer contact page) ============ */
@@ -39,6 +58,7 @@
     }
     a.ct-card:hover { background:#1a1a1a; transform:translateY(-2px); }
     .ct-card.wide { grid-column:1 / -1; }
+    .ct-socials3 { grid-column:1 / -1; display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
     .ct-k { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink-2); }
     .ct-v { font-size:clamp(15px,1.6vw,18px); font-weight:500; color:var(--ink); word-break:break-word; }
     .ct-ico { width:26px; height:26px; display:grid; place-items:center; color:var(--ink); }
@@ -91,9 +111,8 @@
     <nav class="menu-nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="about.html">About me</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="https://drive.google.com/file/d/1-0AJno2h9Kt7Z4dFTANAFVbjkkb6kJhT/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
       <a href="contact.html">Contact</a>
-      <a href="gallery.html">Design Gallery</a>
     </nav>
   </div>
 
@@ -111,22 +130,20 @@
           <span class="ct-v">+234 901 161 2467</span>
         </a>
 
-        <a class="ct-card" href="#" target="_blank" rel="noopener">
-          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.28 8.02h4.4V23H.28V8.02zM7.6 8.02h4.22v2.05h.06c.59-1.06 2.02-2.18 4.16-2.18 4.45 0 5.27 2.75 5.27 6.32V23h-4.4v-6.9c0-1.64-.03-3.76-2.3-3.76-2.3 0-2.65 1.79-2.65 3.64V23H7.6V8.02z"/></svg></span>
-          <span class="ct-k">LinkedIn</span>
-        </a>
-        <a class="ct-card" href="#" target="_blank" rel="noopener">
-          <span class="ct-ico"><span class="be">B&#275;</span></span>
-          <span class="ct-k">Behance</span>
-        </a>
-        <a class="ct-card" href="resume.pdf" target="_blank" rel="noopener">
-          <span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-          <span class="ct-k">Resume</span>
-        </a>
-        <a class="ct-card" href="#" target="_blank" rel="noopener">
-          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3H20.5l-6.49 7.42L21.75 21h-5.98l-4.68-6.12L5.72 21H2.75l6.94-7.93L2.5 3h6.13l4.23 5.6L17.53 3zm-1.05 16.2h1.65L7.6 4.7H5.83l10.65 14.5z"/></svg></span>
-          <span class="ct-k">Twitter</span>
-        </a>
+        <div class="ct-socials3">
+          <a class="ct-card" href="https://www.linkedin.com/in/prisca-olatunji/" target="_blank" rel="noopener">
+            <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.28 8.02h4.4V23H.28V8.02zM7.6 8.02h4.22v2.05h.06c.59-1.06 2.02-2.18 4.16-2.18 4.45 0 5.27 2.75 5.27 6.32V23h-4.4v-6.9c0-1.64-.03-3.76-2.3-3.76-2.3 0-2.65 1.79-2.65 3.64V23H7.6V8.02z"/></svg></span>
+            <span class="ct-k">LinkedIn</span>
+          </a>
+          <a class="ct-card" href="https://drive.google.com/file/d/1-0AJno2h9Kt7Z4dFTANAFVbjkkb6kJhT/view?usp=sharing" target="_blank" rel="noopener">
+            <span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+            <span class="ct-k">Resume</span>
+          </a>
+          <a class="ct-card" href="https://x.com/OfficialPrisca" target="_blank" rel="noopener">
+            <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3H20.5l-6.49 7.42L21.75 21h-5.98l-4.68-6.12L5.72 21H2.75l6.94-7.93L2.5 3h6.13l4.23 5.6L17.53 3zm-1.05 16.2h1.65L7.6 4.7H5.83l10.65 14.5z"/></svg></span>
+            <span class="ct-k">Twitter</span>
+          </a>
+        </div>
       </div>
 
       <p class="ct-formhead">Send me a message</p>
@@ -170,6 +187,9 @@
     (function () {
       var form = document.getElementById("ctForm"), note = document.getElementById("ctNote");
       if (!form) return;
+      // Google Apps Script Web App URL that appends each submission to the spreadsheet.
+      // Deploy the Apps Script (see the setup steps you were given), then paste its /exec URL below.
+      var FORM_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var d = new FormData(form);
@@ -177,9 +197,29 @@
           note.className = "ct-note"; note.textContent = "Please fill in your name, email and message.";
           return;
         }
-        note.className = "ct-note ok";
-        note.textContent = "Thanks! Your message is ready — connect a form endpoint to send it.";
-        form.reset();
+        var btn = form.querySelector(".ct-submit");
+        if (!FORM_ENDPOINT || FORM_ENDPOINT.indexOf("PASTE_YOUR") === 0) {
+          note.className = "ct-note"; note.textContent = "Form endpoint not connected yet.";
+          return;
+        }
+        if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+        note.className = "ct-note"; note.textContent = "Sending…";
+        var body = new URLSearchParams();
+        d.forEach(function (v, k) { body.append(k, v); });
+        body.append("page", location.pathname);
+        fetch(FORM_ENDPOINT, { method: "POST", mode: "no-cors", body: body })
+          .then(function () {
+            note.className = "ct-note ok";
+            note.textContent = "Thanks! Your message has been sent.";
+            form.reset();
+          })
+          .catch(function () {
+            note.className = "ct-note";
+            note.textContent = "Something went wrong. Please email olatunjiprisca@gmail.com directly.";
+          })
+          .finally(function () {
+            if (btn) { btn.disabled = false; btn.textContent = "Submit"; }
+          });
       });
     })();
 
