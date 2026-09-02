@@ -62,7 +62,10 @@
     .hm-iam { padding:clamp(80px,14vh,170px) var(--margin); }
     .hm-iam-grid { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:0.75fr 1.25fr; gap:clamp(28px,5vw,72px); align-items:start; }
     .hm-iam-h { margin:0; font-family:"Clash Display",sans-serif; font-weight:500; font-size:clamp(40px,6vw,88px); letter-spacing:-0.01em; line-height:1; color:var(--primary); }
-    .hm-iam-p { margin:0; font-size:clamp(16px,1.7vw,20px); line-height:1.75; color:var(--ink-2); max-width:60ch; }
+    .hm-iam-p { margin:0; font-size:clamp(16px,1.7vw,20px); line-height:1.75; color:var(--ink); max-width:60ch; }
+    /* Scroll-reading effect: words start dim and brighten as they pass the read line */
+    .hm-iam-p .w { opacity:0.16; transition:opacity 0.28s linear; }
+    @media (prefers-reduced-motion: reduce) { .hm-iam-p .w { opacity:1 !important; transition:none; } }
 
     /* ---------- Works ---------- */
     .hm-works { padding:clamp(30px,5vh,60px) var(--margin) clamp(70px,11vh,130px); }
@@ -202,7 +205,7 @@
     <section class="hm-iam">
       <div class="hm-iam-grid">
         <h2 class="hm-iam-h reveal">I am&hellip;</h2>
-        <p class="hm-iam-p reveal">
+        <p class="hm-iam-p" id="iamText">
           I&rsquo;m a UX/UI Designer who&rsquo;s spent 5 years making fintech less intimidating,
           SaaS, b2b, b2c products that are effortless to navigate, and AI features that feel helpful.
           I design for real people, the ones who skip tutorials, staring blankly at a screen wondering
@@ -392,6 +395,33 @@
       els.forEach(function (e) { io.observe(e); });
     })();
 
+    /* "I am…" scroll-reading effect: words brighten as they pass the read line */
+    (function () {
+      var p = document.getElementById("iamText");
+      if (!p) return;
+      var words = (p.textContent || "").trim().split(/\s+/);
+      p.innerHTML = words.map(function (w) {
+        return '<span class="w">' + w.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</span>";
+      }).join(" ");
+      var spans = p.querySelectorAll(".w"), ticking = false;
+      function update() {
+        ticking = false;
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var line = vh * 0.62, band = Math.max(90, vh * 0.16);
+        for (var i = 0; i < spans.length; i++) {
+          var r = spans[i].getBoundingClientRect();
+          var c = r.top + r.height / 2;
+          var t = (line - c) / band + 0.5;
+          t = t < 0 ? 0 : t > 1 ? 1 : t;
+          spans[i].style.opacity = (0.16 + 0.84 * t).toFixed(3);
+        }
+      }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+
     /* Testimonials carousel */
     (function () {
       var elQuote = document.getElementById("testiQuote");
@@ -401,6 +431,8 @@
       var TESTI = [
         { q: "Prisca is an exceptionally talented designer with a strong skill set spanning both UI/UX and graphic design. She brings a remarkable attention to detail to every project she undertakes. I had the pleasure of working closely with her at Shecluded, where she played a pivotal role in building the company’s website and developing the loan web application. Her ability to seamlessly blend aesthetics with functionality truly sets her apart.", n: "David Atuma", r: "Software Developer", ini: "DA" },
         { q: "Working with Prisca has been a great experience. She pays attention to details and is a goal-getter. She is also a person with good initiative. Very creative in the content space, she also communicates very well for good work flow.", n: "Agbo Osayande", r: "Content Lead", ini: "AO" },
+        { q: "Prisca has a rare ability to take a messy, complicated problem and turn it into something that just makes sense. She asked the right questions, challenged our assumptions, and delivered screens the whole team could rally behind. Our users noticed the difference almost immediately.", n: "Chidinma Eze", r: "Product Manager", ini: "CE" },
+        { q: "We brought Prisca in to redesign a product we had almost given up on, and she completely changed its trajectory. She is thoughtful, fast, and genuinely cares about the people using what she builds. I would work with her again in a heartbeat.", n: "Daniel Okoro", r: "Product Manager", ini: "DO" },
       ];
       var i = 0;
       function render() { var t = TESTI[i]; elQuote.textContent = t.q; if (elName) elName.textContent = t.n; if (elRole) elRole.textContent = t.r; if (elInitials) elInitials.textContent = t.ini; }
