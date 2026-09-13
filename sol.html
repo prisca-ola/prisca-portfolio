@@ -3,26 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinetyq Case Study · Prisca Olatunji</title>
-  <meta name="description" content="Kinetyq, an AI-powered fleet intelligence platform. A product design case study by Prisca Olatunji." />
+  <title>Shelter of Light Case Study · Prisca Olatunji</title>
+  <meta name="description" content="Shelter of Light (SOL), a nonprofit landing page. A web design case study by Prisca Olatunji." />
 
   <!-- Social share (Open Graph + Twitter) -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Prisca Olatunji" />
-  <meta property="og:title" content="Kinetyq, Case Study" />
-  <meta property="og:url" content="https://priscydesign.netlify.app/kinetyq.html" />
-  <meta property="og:description" content="An AI-powered fleet intelligence platform. A product design case study by Prisca Olatunji." />
+  <meta property="og:title" content="Shelter of Light, Case Study" />
+  <meta property="og:url" content="https://priscydesign.netlify.app/sol.html" />
+  <meta property="og:description" content="A nonprofit landing page. A web design case study by Prisca Olatunji." />
   <meta property="og:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@OfficialPrisca" />
   <meta name="twitter:creator" content="@OfficialPrisca" />
-  <meta name="twitter:title" content="Kinetyq, Case Study" />
-  <meta name="twitter:description" content="An AI-powered fleet intelligence platform. A product design case study by Prisca Olatunji." />
+  <meta name="twitter:title" content="Shelter of Light, Case Study" />
+  <meta name="twitter:description" content="A nonprofit landing page. A web design case study by Prisca Olatunji." />
   <meta name="twitter:image" content="https://priscydesign.netlify.app/assets/og-image.jpg" />
 
-  <!-- Satoshi font (Fontshare) -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link
     href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
@@ -34,12 +33,12 @@
   <script src="js/nav.js" defer></script>
 
   <style>
-    /* ---- Kinetyq case study : navy frame, gold accent, Satoshi ---- */
+    /* ---- Shelter of Light case study : warm charcoal frame, golden-light accent, Satoshi ---- */
     :root {
-      --nv: #010D16;
-      --ink: #eef4f9;
-      --ink-2: #9fb3c4;
-      --gold: #f4b740;
+      --nv: #171310;
+      --ink: #f7efe4;
+      --ink-2: #cfbfa6;
+      --gold: #e8b866;
       --cs-line: rgba(255, 255, 255, 0.12);
     }
     /* The shared stylesheet locks body scroll for the single-page site; re-enable normal scroll here. */
@@ -52,7 +51,7 @@
       overflow-x: hidden;
       overflow-y: visible;
     }
-    /* Subtle film grain over the dark canvas (same as the Edibles case study) */
+    /* Subtle film grain over the warm dark canvas */
     .cs-body::before {
       content: "";
       position: fixed;
@@ -64,18 +63,15 @@
       opacity: 0.13;
       mix-blend-mode: screen;
     }
-    /* Keep all content above the grain layer */
     /* Topbar stays fixed (from the shared stylesheet); only the main content needs raising above the grain. */
-    .cs-main { position: relative; z-index: 1; }
+    .cs-main { position: relative; z-index: 1; padding-top: var(--topbar-h); }
 
     /* Top bar */
     .cs-topbar { background: var(--nv); border-bottom: 1px solid var(--cs-line); }
-    .cs-topbar .brand { color: #f4faff; }
+    .cs-topbar .brand { color: #fff7ea; }
     .cs-topbar .nav a { color: var(--ink-2); }
-    .cs-topbar .nav a:hover { color: #f4faff; }
-    .cs-topbar .theme-toggle { border-color: rgba(255, 255, 255, 0.18); color: #f4faff; }
-
-    .cs-main { padding-top: var(--topbar-h); }
+    .cs-topbar .nav a:hover { color: #fff7ea; }
+    .cs-topbar .theme-toggle { border-color: rgba(255, 255, 255, 0.18); color: #fff7ea; }
 
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -97,34 +93,22 @@
       border-bottom: 1px solid var(--cs-line);
     }
     .cs-desc h2 { margin: 0 0 20px; font-size: clamp(24px, 2.8vw, 32px); font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
-    .cs-desc p { margin: 0; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 46ch; }
+    .cs-desc p { margin: 0; font-size: 16px; line-height: 1.75; color: var(--ink-2); max-width: 48ch; }
     .cs-desc p + p { margin-top: 16px; }
-
     .cs-facts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.4vw, 44px) clamp(28px, 4vw, 60px); }
     .cs-facts .f { display: flex; flex-direction: column; gap: 8px; }
-    .cs-facts .k { font-size: 14px; color: var(--ink-2); }
+    .cs-facts .k { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
     .cs-facts .v { font-size: clamp(17px, 1.7vw, 21px); font-weight: 700; color: var(--ink); line-height: 1.35; }
-
-    /* ---- Dashed-stroke live-site button ---- */
-    .cs-livecta { display: flex; justify-content: center; padding: clamp(16px, 3vw, 32px) 0 clamp(56px, 8vw, 96px); }
-    .cs-live {
-      display: inline-flex; align-items: center; gap: 12px;
-      height: 56px; padding: 0 32px; border-radius: 999px;
-      border: 1.5px dashed var(--gold); background: transparent; color: var(--gold);
-      font-size: 16px; font-weight: 600;
-      transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
-    }
-    .cs-live:hover { background: var(--gold); color: var(--nv); border-style: solid; }
-    .cs-live svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* Designs section heading */
     .cs-designs-head {
-      text-align: center; margin: 0; padding: 0 0 clamp(28px, 4vw, 44px);
+      text-align: center; margin: 0; padding: clamp(48px, 7vw, 88px) 0 clamp(28px, 4vw, 44px);
       font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
     }
+    .cs-designs-head .sub { display: block; margin-top: 10px; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.01em; text-transform: none; color: var(--ink); }
 
-    /* ---- The designs : elevated screens floating on the navy frame ---- */
-    .cs-designs { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px); }
+    /* ---- The designs : full-width web screens stacked on the warm frame ---- */
+    .cs-designs { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px); }
     .cs-screen {
       display: block; width: 100%; height: auto;
       border-radius: 14px;
@@ -133,18 +117,13 @@
     }
     .cs-screen:last-child { margin-bottom: 0; }
 
-    /* Back button */
-    .cs-cta { display: flex; justify-content: center; padding: clamp(56px, 8vw, 104px) 24px; }
-    .cs-back {
-      display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 24px; border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.2); color: #f4faff; font-size: 15px; font-weight: 500;
-      transition: background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
-    }
-    .cs-back:hover { background: var(--gold); border-color: var(--gold); color: var(--nv); }
-
     @media (max-width: 820px) {
       .cs-intro { grid-template-columns: 1fr; gap: 40px; }
       .cs-facts { gap: 28px 40px; }
+    }
+    @media (max-width: 480px) {
+      .cs-facts { grid-template-columns: 1fr; gap: 24px; }
+      .cs-screen { border-radius: 10px; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
     }
   </style>
 </head>
@@ -167,65 +146,55 @@
   </header>
 
   <main class="cs-main">
-    <h1 class="sr-only">Kinetyq, fleet intelligence platform. Case study.</h1>
+    <h1 class="sr-only">Shelter of Light, nonprofit landing page. Case study.</h1>
 
     <!-- ===== Full-bleed mockup hero ===== -->
     <section class="cs-herofull">
-      <img src="works/kinetyq/hero.webp" width="2076" height="1300" alt="Kinetyq case study cover, Know Where Every Vehicle Is landing page in a browser" />
+      <img src="works/sol/hero.webp" width="2400" height="1455" alt="Shelter of Light case study cover mockup" />
     </section>
 
-    <!-- ===== Horizontal intro : meta + columns ===== -->
+    <!-- ===== Intro : Description + fields ===== -->
     <section class="cs-col">
       <div class="cs-intro">
         <div class="cs-desc">
           <h2>Description</h2>
           <p>
-            Kinetyq is an AI-powered platform that delivers intelligent, real-time vehicle insights
-            that empower drivers, technicians and fleet managers. By connecting vehicles, people and
-            workflows into one platform, Kinetyq helps fleets operate with fewer breakdowns, lower
-            costs and greater confidence on the road.
+            Shelter of Light (SOL) is a nonprofit that brings hope and practical support to people who
+            need it most. I designed the organisation's landing experience, a warm, story-led site that
+            introduces the mission, shares the people and stories behind the work, and makes it simple
+            for supporters to learn more and get involved.
           </p>
         </div>
 
         <div class="cs-facts">
-          <div class="f"><span class="k">Category</span><span class="v">Visual Design</span></div>
-          <div class="f"><span class="k">Duration</span><span class="v">2025 - 2026</span></div>
+          <div class="f"><span class="k">Category</span><span class="v">Web Design</span></div>
+          <div class="f"><span class="k">Period</span><span class="v">2024</span></div>
           <div class="f"><span class="k">Designer</span><span class="v">Prisca Olatunji</span></div>
-          <div class="f"><span class="k">Services</span><span class="v">UI Design, Claude-Code</span></div>
+          <div class="f"><span class="k">Services</span><span class="v">UI/UX Design, Landing Page</span></div>
         </div>
-      </div>
-
-      <!-- Dashed-stroke live-site button, before the designs -->
-      <div class="cs-livecta">
-        <a class="cs-live" href="https://kinetyq.com" target="_blank" rel="noopener">
-          View the live site
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
-        </a>
       </div>
     </section>
 
-    <!-- ===== The designs : elevated screens on the navy frame ===== -->
-    <h2 class="cs-designs-head">The designs</h2>
+    <!-- ===== The designs ===== -->
+    <h2 class="cs-designs-head">The designs<span class="sub">Nonprofit landing page</span></h2>
     <div class="cs-designs">
-      <img class="cs-screen" src="works/kinetyq/part-00.webp" width="2160" height="13049" alt="Kinetyq home page" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-01.webp" width="2160" height="7403" alt="Kinetyq features" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-02.webp" width="2160" height="7164" alt="Kinetyq pricing" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-03.webp" width="2160" height="5370" alt="Kinetyq tracking" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-04.webp" width="2160" height="8100" alt="Kinetyq about us" loading="lazy" />
-      <img class="cs-screen" src="works/kinetyq/part-05.webp" width="2160" height="2960" alt="Kinetyq contact us" loading="lazy" />
+      <img class="cs-screen" src="works/sol/01-home.webp" alt="Shelter of Light home page" loading="lazy" />
+      <img class="cs-screen" src="works/sol/02-about.webp" alt="Shelter of Light about us page" loading="lazy" />
+      <img class="cs-screen" src="works/sol/03-stories.webp" alt="Shelter of Light stories page" loading="lazy" />
+      <img class="cs-screen" src="works/sol/04-contact.webp" alt="Shelter of Light contact us page" loading="lazy" />
     </div>
 
     <section class="cs-nav">
-      <a class="cs-nav-prev" href="legalpedia.html">
+      <a class="cs-nav-prev" href="shecluded.html">
         <span class="cs-nav-label">Prev Project</span>
-        <span class="cs-nav-name">Legalpedia</span>
-        <img class="cs-nav-thumb" src="works/legalpedia/hero.webp" alt="" loading="lazy" />
+        <span class="cs-nav-name">Shecluded</span>
+        <img class="cs-nav-thumb" src="works/shecluded/thumb.webp" alt="" loading="lazy" />
       </a>
       <a class="cs-nav-all" href="works.html">All Projects</a>
-      <a class="cs-nav-next" href="edibles.html">
+      <a class="cs-nav-next" href="ajo.html">
         <span class="cs-nav-label">Next Project</span>
-        <span class="cs-nav-name">Edibles</span>
-        <img class="cs-nav-thumb" src="works/edibles/hero.webp" alt="" loading="lazy" />
+        <span class="cs-nav-name">Ajo</span>
+        <img class="cs-nav-thumb" src="works/ajo-hero.webp" alt="" loading="lazy" />
       </a>
     </section>
   </main>
