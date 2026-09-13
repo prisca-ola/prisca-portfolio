@@ -71,6 +71,9 @@
     .wk-name svg { flex:none; width:20px; height:20px; fill:none; stroke:var(--ink-2); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transition:transform 0.3s var(--ease), stroke 0.3s var(--ease); }
     .wk-card:hover .wk-name svg { transform:translate(3px,-3px); stroke:var(--primary); }
     .wk-cat { display:block; margin-top:6px; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-2); }
+    /* Email design tiles: taller preview (standalone designs, no case-study page) */
+    .wk-card.wk-email .wk-media { aspect-ratio:4/5; }
+    .wk-card.wk-email .wk-media img { object-position:top; }
 
     /* Empty state (Email design has no projects yet) */
     .wk-empty { display:none; padding:clamp(48px,9vh,110px) 0; text-align:center; }
@@ -154,6 +157,16 @@
           <div class="wk-media"><img src="works/toteez/thumb.webp" alt="Toteez community mobile app" loading="lazy" /></div>
           <div class="wk-name"><span>Toteez</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
           <span class="wk-cat">Mobile app</span>
+        </a>
+        <a class="wk-card wk-email" href="works/email/01.webp" target="_blank" rel="noopener" data-cat="email">
+          <div class="wk-media"><img src="works/email/01.webp" alt="Email design" loading="lazy" /></div>
+          <div class="wk-name"><span>Email design 01</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
+          <span class="wk-cat">Email</span>
+        </a>
+        <a class="wk-card wk-email" href="works/email/02.webp" target="_blank" rel="noopener" data-cat="email">
+          <div class="wk-media"><img src="works/email/02.webp" alt="Email design" loading="lazy" /></div>
+          <div class="wk-name"><span>Email design 02</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
+          <span class="wk-cat">Email</span>
         </a>
       </div>
 
