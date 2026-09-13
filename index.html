@@ -84,6 +84,16 @@
     .hm-card-name span { font-family:"Clash Display",sans-serif; font-weight:500; font-size:clamp(20px,2.2vw,28px); color:var(--ink); }
     .hm-card-name svg { width:20px; height:20px; fill:none; stroke:var(--ink-2); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transition:transform 0.3s var(--ease), stroke 0.3s var(--ease); }
     .hm-card:hover .hm-card-name svg { transform:translate(3px,-3px); stroke:var(--primary); }
+    /* Visible View-all button under the cards */
+    .hm-works-more { display:flex; justify-content:center; margin-top:clamp(36px,5vw,56px); }
+    .hm-works-more .hm-viewall-btn {
+      display:inline-flex; align-items:center; gap:10px; height:54px; padding:0 30px; border-radius:10px;
+      border:1px solid var(--border); color:var(--ink); font-size:15px; font-weight:600; letter-spacing:0.02em;
+      transition:background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+    }
+    .hm-works-more .hm-viewall-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform 0.3s var(--ease); }
+    .hm-works-more .hm-viewall-btn:hover { background:var(--primary); border-color:var(--primary); color:#fff; }
+    .hm-works-more .hm-viewall-btn:hover svg { transform:translateX(3px); }
 
     /* ---------- Tools ---------- */
     .hm-tools { padding:0 var(--margin) clamp(60px,10vh,120px); }
@@ -200,6 +210,11 @@
           <a class="hm-card reveal" href="edibles.html">
             <div class="hm-card-media"><img src="works/edibles/hero.webp" alt="Edibles food ordering app" loading="lazy" /></div>
             <div class="hm-card-name"><span>Edibles</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
+          </a>
+        </div>
+        <div class="hm-works-more reveal">
+          <a class="hm-viewall-btn" href="works.html">View all works
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
         </div>
       </div>
