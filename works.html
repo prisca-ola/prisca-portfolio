@@ -159,13 +159,13 @@
           <span class="wk-cat">Mobile app</span>
         </a>
         <a class="wk-card wk-email" href="works/email/01.webp" target="_blank" rel="noopener" data-cat="email">
-          <div class="wk-media"><img src="works/email/01.webp" alt="Email design" loading="lazy" /></div>
-          <div class="wk-name"><span>Email design 01</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
+          <div class="wk-media"><img src="works/email/01.webp" alt="Mini Gump email design" loading="lazy" /></div>
+          <div class="wk-name"><span>Mini Gump</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
           <span class="wk-cat">Email</span>
         </a>
         <a class="wk-card wk-email" href="works/email/02.webp" target="_blank" rel="noopener" data-cat="email">
-          <div class="wk-media"><img src="works/email/02.webp" alt="Email design" loading="lazy" /></div>
-          <div class="wk-name"><span>Email design 02</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
+          <div class="wk-media"><img src="works/email/02.webp" alt="AU Sixth Region email design" loading="lazy" /></div>
+          <div class="wk-name"><span>AU Sixth Region</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
           <span class="wk-cat">Email</span>
         </a>
       </div>
@@ -248,7 +248,8 @@
         var shown = 0;
         cards.forEach(function (c) {
           var cats = (c.getAttribute("data-cat") || "").split(/\s+/);
-          var match = filter === "all" || cats.indexOf(filter) !== -1;
+          // "All" shows every project except email designs (those live only in the Email tab)
+          var match = filter === "all" ? cats.indexOf("email") === -1 : cats.indexOf(filter) !== -1;
           c.classList.toggle("hide", !match);
           if (match) shown++;
         });
@@ -262,12 +263,11 @@
           try { history.replaceState(null, "", "#" + t.getAttribute("data-filter")); } catch (e) {}
         });
       });
-      // Deep-link support: works.html#ai etc.
+      // Deep-link support (works.html#ai etc.) + apply the default filter on load
       var hash = (location.hash || "").replace("#", "");
-      if (hash) {
-        var target = Array.prototype.find.call(tabs, function (t) { return t.getAttribute("data-filter") === hash; });
-        if (target) target.click();
-      }
+      var target = hash ? Array.prototype.find.call(tabs, function (t) { return t.getAttribute("data-filter") === hash; }) : null;
+      if (target) target.click();
+      else apply("all");
     })();
 
     /* Footer year (kept for parity with other pages) */
