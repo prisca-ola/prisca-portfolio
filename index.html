@@ -143,6 +143,29 @@
       .hm-hero-foot { gap:16px; }
       .hm-card-media { aspect-ratio:4/3; }
     }
+
+    /* ---------- Mobile only: Works cards stack on each other as you scroll ---------- */
+    @media (max-width:760px) {
+      .hm-works-grid { display:block; }
+      .hm-card {
+        position:sticky;
+        background:var(--pg);
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:10px 10px 14px;
+        margin:0 0 clamp(22px,5vw,34px);
+        box-shadow:0 -10px 30px rgba(0,0,0,0.4), 0 14px 34px rgba(0,0,0,0.45);
+      }
+      /* Neutralise the fade-in so the stacking is the effect (and cards never get stuck hidden) */
+      .hm-card.reveal { opacity:1; transform:none; }
+      .hm-card-media { aspect-ratio:4/3; border-radius:12px; }
+      .hm-card-name { margin-top:12px; padding:0 4px; }
+      /* Staggered stick points + paint order so each card piles onto the one before */
+      .hm-card:nth-child(1) { top:calc(var(--topbar-h) + 14px); z-index:1; }
+      .hm-card:nth-child(2) { top:calc(var(--topbar-h) + 30px); z-index:2; }
+      .hm-card:nth-child(3) { top:calc(var(--topbar-h) + 46px); z-index:3; }
+      .hm-card:nth-child(4) { top:calc(var(--topbar-h) + 62px); z-index:4; }
+    }
   </style>
 </head>
 <body class="hm-body">
