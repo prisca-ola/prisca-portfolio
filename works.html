@@ -75,6 +75,18 @@
     .wk-card.wk-email .wk-media { aspect-ratio:4/5; }
     .wk-card.wk-email .wk-media img { object-position:top; }
 
+    /* Promotional motion designs: height-normalised video reel (autoplay muted, press play for sound) */
+    .wk-grid.is-motion { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:clamp(20px,2.6vw,36px); }
+    .wk-motion { display:block; }
+    .wk-motion .wk-video { line-height:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); background:#000; }
+    .wk-motion video { height:clamp(340px,46vh,480px); width:auto; max-width:100%; display:block; object-fit:contain; background:#000; }
+    .wk-motion .wk-name { margin-top:14px; }
+    @media (max-width:760px) {
+      .wk-grid.is-motion { display:block; }
+      .wk-motion { margin-bottom:clamp(26px,7vw,40px); }
+      .wk-motion video { height:auto; width:100%; max-height:78vh; }
+    }
+
     /* Empty state (Email design has no projects yet) */
     .wk-empty { display:none; padding:clamp(48px,9vh,110px) 0; text-align:center; }
     .wk-empty.show { display:block; }
@@ -120,6 +132,7 @@
         <button class="wk-tab" type="button" data-filter="web">Web apps</button>
         <button class="wk-tab" type="button" data-filter="website">Website</button>
         <button class="wk-tab" type="button" data-filter="email">Email design</button>
+        <button class="wk-tab" type="button" data-filter="motion">Promotional Motion Designs</button>
       </div>
 
       <div class="wk-grid" id="wkGrid">
@@ -168,6 +181,28 @@
           <div class="wk-name"><span>AU Sixth Region</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></div>
           <span class="wk-cat">Email</span>
         </a>
+
+        <!-- Promotional motion designs: autoplay-muted (press play / unmute to hear sound) -->
+        <div class="wk-card wk-motion" data-cat="motion">
+          <div class="wk-video"><video src="works/motion/kinetyq.mp4" poster="works/motion/kinetyq.jpg" muted loop playsinline controls preload="metadata"></video></div>
+          <div class="wk-name"><span>KinetyQ</span></div>
+          <span class="wk-cat">Motion design</span>
+        </div>
+        <div class="wk-card wk-motion" data-cat="motion">
+          <div class="wk-video"><video src="works/motion/slc-ecommerce.mp4" poster="works/motion/slc-ecommerce.jpg" muted loop playsinline controls preload="metadata"></video></div>
+          <div class="wk-name"><span>SLC E-commerce</span></div>
+          <span class="wk-cat">Motion design</span>
+        </div>
+        <div class="wk-card wk-motion" data-cat="motion">
+          <div class="wk-video"><video src="works/motion/slc-motion-graphics.mp4" poster="works/motion/slc-motion-graphics.jpg" muted loop playsinline controls preload="metadata"></video></div>
+          <div class="wk-name"><span>SLC Motion Graphics</span></div>
+          <span class="wk-cat">Motion design</span>
+        </div>
+        <div class="wk-card wk-motion" data-cat="motion">
+          <div class="wk-video"><video src="works/motion/motion-reel.mp4" poster="works/motion/motion-reel.jpg" muted loop playsinline controls preload="metadata"></video></div>
+          <div class="wk-name"><span>Promotional Reel</span></div>
+          <span class="wk-cat">Motion design</span>
+        </div>
       </div>
 
       <div class="wk-empty" id="wkEmpty">
@@ -244,12 +279,16 @@
       var tabs = document.querySelectorAll(".wk-tab");
       var cards = document.querySelectorAll("#wkGrid .wk-card");
       var empty = document.getElementById("wkEmpty");
+      var grid = document.getElementById("wkGrid");
       function apply(filter) {
+        // Motion tab uses a height-normalised video reel instead of the card grid
+        grid.classList.toggle("is-motion", filter === "motion");
         var shown = 0;
         cards.forEach(function (c) {
           var cats = (c.getAttribute("data-cat") || "").split(/\s+/);
-          // "All" shows every project except email designs (those live only in the Email tab)
-          var match = filter === "all" ? cats.indexOf("email") === -1 : cats.indexOf(filter) !== -1;
+          // Email and motion are standalone tabs: excluded from "All"
+          var standalone = cats.indexOf("email") !== -1 || cats.indexOf("motion") !== -1;
+          var match = filter === "all" ? !standalone : cats.indexOf(filter) !== -1;
           c.classList.toggle("hide", !match);
           if (match) shown++;
         });
@@ -268,6 +307,21 @@
       var target = hash ? Array.prototype.find.call(tabs, function (t) { return t.getAttribute("data-filter") === hash; }) : null;
       if (target) target.click();
       else apply("all");
+    })();
+
+    /* Motion videos: autoplay muted while in view, pause when out (user can unmute via controls) */
+    (function () {
+      var vids = document.querySelectorAll(".wk-motion video");
+      if (!vids.length) return;
+      if (!("IntersectionObserver" in window)) { return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var v = en.target;
+          if (en.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+          else { v.pause(); }
+        });
+      }, { threshold: 0.35 });
+      vids.forEach(function (v) { io.observe(v); });
     })();
 
     /* Footer year (kept for parity with other pages) */
