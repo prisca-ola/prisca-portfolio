@@ -75,17 +75,12 @@
     .wk-card.wk-email .wk-media { aspect-ratio:4/5; }
     .wk-card.wk-email .wk-media img { object-position:top; }
 
-    /* Promotional motion designs: height-normalised video reel (autoplay muted, press play for sound) */
-    .wk-grid.is-motion { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:clamp(20px,2.6vw,36px); }
-    .wk-motion { display:block; }
+    /* Promotional motion designs: stacked and centred (autoplay muted, press play for sound) */
+    .wk-grid.is-motion { display:flex; flex-direction:column; align-items:center; gap:clamp(28px,5vw,48px); }
+    .wk-motion { display:block; max-width:100%; }
     .wk-motion .wk-video { line-height:0; border-radius:14px; overflow:hidden; border:1px solid var(--border); background:#000; }
-    .wk-motion video { height:clamp(340px,46vh,480px); width:auto; max-width:100%; display:block; object-fit:contain; background:#000; }
+    .wk-motion video { max-width:100%; max-height:76vh; width:auto; height:auto; display:block; background:#000; }
     .wk-motion .wk-name { margin-top:14px; }
-    @media (max-width:760px) {
-      .wk-grid.is-motion { display:block; }
-      .wk-motion { margin-bottom:clamp(26px,7vw,40px); }
-      .wk-motion video { height:auto; width:100%; max-height:78vh; }
-    }
 
     /* Empty state (Email design has no projects yet) */
     .wk-empty { display:none; padding:clamp(48px,9vh,110px) 0; text-align:center; }
